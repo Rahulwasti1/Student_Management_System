@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#clickManageStudent" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #DBE4EB;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment.AdminManageActivities">
+    <children>
+        <Pane layoutX="-1.0" layoutY="1.0" prefHeight="70.0" prefWidth="901.0" style="-fx-background-color: white;">
+            <children>
+                <Button layoutX="814.0" layoutY="10.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="70.0" style="-fx-background-color: none;" />
+                <ImageView accessibleRole="BUTTON" fitHeight="43.0" fitWidth="45.0" layoutX="838.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../ICON/User.png" />
+                    </image>
+                </ImageView>
+                <Text layoutX="301.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Extra Cirriculum Activities">
+                    <font>
+                        <Font name="Arial Bold" size="21.0" />
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <Button layoutX="218.0" layoutY="75.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #364CC0; -fx-text-fill: white;" text="+ Add New Activities">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+        <TableView layoutX="218.0" layoutY="119.0" prefHeight="331.0" prefWidth="662.0">
+            <columns>
+                <TableColumn text="S.no" />
+                <TableColumn prefWidth="125.0" text="Activity ID" />
+                <TableColumn prefWidth="170.0" text="Activity Type" />
+                <TableColumn prefWidth="130.0" text="Activity Date" />
+                <TableColumn prefWidth="156.0" text="Action" />
+            </columns>
+        </TableView>
+      <Pane layoutY="71.0" prefHeight="529.0" prefWidth="209.0" style="-fx-background-color: white;">
+         <children>
+            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#clickAdminDashboard" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="Dashboard">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="9.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../ICON/Admin/Dashboard.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="-1.0" layoutY="47.0" mnemonicParsing="false" onAction="#clickManageStudent" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="            Manage Students">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="-1.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickManageTeacher" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="          Manage Teacher">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="-1.0" layoutY="139.0" mnemonicParsing="false" onAction="#clickManageStaff" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="   Manage Staff">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="-2.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickManageActivities" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="            Manage Activities">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="10.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Admin/Manage_Student.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="35.0" layoutX="8.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Admin/Manage_Teacher.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="34.0" layoutX="8.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Admin/Manage_Staff.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="34.0" layoutX="9.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Admin/Manage_Extra_Cirriculum.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="35.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: none; -fx-border-color: none; -fx-background-radius: 0;" text="   Logout">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView accessibleRole="BUTTON" fitHeight="41.0" fitWidth="34.0" layoutX="52.0" layoutY="467.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Logout.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

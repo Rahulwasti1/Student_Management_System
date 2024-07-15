@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.assignment.StaffDashboard"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <HBox alignment="CENTER_RIGHT" layoutX="-6.0" prefHeight="52.0" prefWidth="621.0" style="-fx-background-color: white;">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="477.0" text="Staff Dashboard">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+                <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="48.0" style="-fx-background-color: FFFF;">
+                    <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Image/profile.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <VBox layoutY="52.0" prefHeight="312.0" prefWidth="179.0" style="-fx-background-color: white;">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="137.0" style="-fx-border-color: #A9A9A9;">
+                    <children>
+                        <ImageView fitHeight="22.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Image/menu.png" />
+                            </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" style="-fx-background-color: white;" text="Dashboard" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="137.0" style="-fx-border-color: #A9A9A9;">
+                    <children>
+                        <ImageView fitHeight="22.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Image/paper.png" />
+                            </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" style="-fx-background-color: white;" text="Admission Management" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="137.0" style="-fx-border-color: #A9A9A9;">
+                    <children>
+                        <ImageView fitHeight="22.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Image/book.png" />
+                            </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" style="-fx-background-color: white;" text="Library Management" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <Button layoutY="358.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" text="Logout">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../Image/Back.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="181.0" layoutY="55.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="142.0" style="-fx-background-color: FFFF;" text="Student info manage">
+            <graphic>
+                <ImageView fitHeight="74.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../Image/user.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+        <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="326.0" layoutY="55.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="142.0" style="-fx-background-color: FFFF;" text="Admission Management">
+            <graphic>
+                <ImageView fitHeight="59.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../Image/paper.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <font>
+                <Font name="System Bold" size="11.0" />
+            </font>
+        </Button>
+        <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="471.0" layoutY="55.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="140.0" style="-fx-background-color: FFFF;" text="library Management">
+            <graphic>
+                <ImageView fitHeight="74.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../Image/pin.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <font>
+                <Font name="System Bold" size="11.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

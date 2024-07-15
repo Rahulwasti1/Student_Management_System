@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #DBE4EB;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment.AdminDashboard">
+   <children>
+      <Pane layoutX="-1.0" layoutY="1.0" prefHeight="70.0" prefWidth="901.0" style="-fx-background-color: white;">
+         <children>
+            <Button layoutX="814.0" layoutY="10.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="70.0" style="-fx-background-color: none;" />
+            <ImageView accessibleRole="BUTTON" fitHeight="43.0" fitWidth="45.0" layoutX="838.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../ICON/User.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="427.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+               <font>
+                  <Font name="Arial Bold" size="21.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutY="71.0" prefHeight="529.0" prefWidth="209.0" style="-fx-background-color: white;">
+         <children>
+            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#clickAdminDashboard" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="Dashboard">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="9.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../ICON/Admin/Dashboard.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="-1.0" layoutY="47.0" mnemonicParsing="false" onAction="#clickManageStudent" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="            Manage Students">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="-1.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickManageTeacher" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="          Manage Teacher">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="-1.0" layoutY="139.0" mnemonicParsing="false" onAction="#clickManageStaff" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="   Manage Staff">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="-2.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickManageActivities" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="            Manage Activities">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="10.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Admin/Manage_Student.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="35.0" layoutX="8.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Admin/Manage_Teacher.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="34.0" layoutX="8.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Admin/Manage_Staff.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="34.0" layoutX="9.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Admin/Manage_Extra_Cirriculum.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="35.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: none; -fx-border-color: none; -fx-background-radius: 0;" text="   Logout">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView accessibleRole="BUTTON" fitHeight="41.0" fitWidth="34.0" layoutX="52.0" layoutY="467.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+               <image>
+                  <Image url="@../../../ICON/Logout.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="232.0" layoutY="81.0" prefHeight="386.0" prefWidth="639.0" style="-fx-background-color: white;">
+         <children>
+            <Pane layoutX="21.0" layoutY="16.0" prefHeight="176.0" prefWidth="197.0" style="-fx-background-color: white; -fx-border-color: grey;">
+               <children>
+                  <Circle fill="WHITE" layoutX="100.0" layoutY="68.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" text="Add Teacher Detail" />
+                  <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="71.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../ICON/Admin/Add_Teacher_Detail.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="220.0" layoutY="16.0" prefHeight="176.0" prefWidth="197.0" style="-fx-background-color: white; -fx-border-color: grey;">
+               <children>
+                  <Circle fill="WHITE" layoutX="100.0" layoutY="68.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" text="View Teacher Detail" />
+                  <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="69.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../ICON/Admin/View_Teacher_Detail.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="419.0" layoutY="16.0" prefHeight="176.0" prefWidth="197.0" style="-fx-background-color: white; -fx-border-color: grey;">
+               <children>
+                  <Circle fill="WHITE" layoutX="100.0" layoutY="68.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" text="Edit Student Detail" />
+                  <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="73.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../ICON/Admin/Edit_Student_Detail.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="21.0" layoutY="194.0" prefHeight="176.0" prefWidth="197.0" style="-fx-background-color: white; -fx-border-color: grey;">
+               <children>
+                  <Circle fill="WHITE" layoutX="100.0" layoutY="68.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" text="Add Student Detail" />
+                  <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="70.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../ICON/Admin/Add_Student.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="220.0" layoutY="194.0" prefHeight="176.0" prefWidth="197.0" style="-fx-background-color: white; -fx-border-color: grey;">
+               <children>
+                  <Circle fill="WHITE" layoutX="100.0" layoutY="68.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" text="View Student Detail" />
+                  <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="70.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../ICON/Admin/View_Student_Detail.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="419.0" layoutY="194.0" prefHeight="176.0" prefWidth="197.0" style="-fx-background-color: white; -fx-border-color: grey;">
+               <children>
+                  <Circle fill="WHITE" layoutX="100.0" layoutY="68.0" radius="58.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" text="Add Staff Detail" />
+                  <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="68.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../ICON/Admin/Add_Staff_Detail.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
