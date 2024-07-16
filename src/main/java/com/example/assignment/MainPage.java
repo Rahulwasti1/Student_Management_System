@@ -17,7 +17,6 @@ import java.util.Map;
 import static com.example.assignment.Uses.writeCSV;
 
 public class MainPage extends Application {
-
     public static void main(String[] args) {
         initializeFiles();
         launch();
@@ -29,7 +28,7 @@ public class MainPage extends Application {
         List<Map.Entry<String, String[]>> fileHeaders = new ArrayList<>();
 
         fileHeaders.add(new AbstractMap.SimpleEntry<>("add_student_form.csv", new String[]{
-                "student_id", "first_name", "last_name", "ph_number", "email", "faculty"
+                "student_id", "first_name", "last_name", "gender", "ph_number", "email", "faculty"
         }));
 //        TODO: add more manually :(
 
@@ -62,7 +61,7 @@ public class MainPage extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Admin_Add_New_Student_form.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("LOGIN PAGE");
         stage.setScene(scene);

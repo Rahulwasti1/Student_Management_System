@@ -1,2 +1,3 @@
-"student_id","first_name","last_name","ph_number","email","faculty"
-
+"student_id","first_name","last_name","gender","ph_number","email","faculty"
+"123456","Hari","Mandal","Male","9812345678","hari@yapmail.com","Computer Science"
+"123456","Gand","Mandal","Male","9812345679","gand@yapmail.com","Computer Science"

@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import java.io.IOException;
 
 import static com.example.assignment.Uses.changeScene;
+import static com.example.assignment.Uses.createPopup;
 
 public class AdminManageStudent {
 
@@ -38,8 +39,9 @@ public class AdminManageStudent {
         changeScene(event, "Login.fxml", "STUDENT MANAGEMENT SYSTEM");
     }
 
-
-
+    public void onAddStudent(ActionEvent event) throws IOException {
+        createPopup("Admin_Add_New_Student_form.fxml", "Admin: Add new student");
+    }
 
 
 }
