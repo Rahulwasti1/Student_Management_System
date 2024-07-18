@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-import static com.example.assignment.Uses.changeScene;
+import static com.example.assignment.Static.Uses.changeScene;
 
 public class DashboardController {
     @FXML

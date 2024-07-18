@@ -5,8 +5,8 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-import static com.example.assignment.Uses.changeScene;
-import static com.example.assignment.Uses.createPopup;
+import static com.example.assignment.Static.Uses.changeScene;
+import static com.example.assignment.Static.Uses.createPopup;
 
 public class ManageActivitiesController {
 

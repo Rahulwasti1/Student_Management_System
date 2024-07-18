@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.assignment.Uses.changeScene;
+import static com.example.assignment.Static.Uses.changeScene;
 
 public class Login implements Initializable {
     private String roleDashboard;

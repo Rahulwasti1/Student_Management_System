@@ -1,14 +1,8 @@
-package com.example.assignment;
+package com.example.assignment.Static;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvValidationException;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -21,12 +15,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Uses {
+public class CSVUtils {
     public static final Map<String, String[]> headersMap = new HashMap<>();
 
     static {
         headersMap.put("add_student_form.csv", new String[]{
-                "student_id", "first_name", "last_name", "gender", "ph_number", "email", "faculty"
+                "student_id", "first_name", "last_name", "gender", "ph_number", "email", "faculty", "password"
         });
         headersMap.put("add_teacher_form.csv", new String[]{
                 "teacher_id", "name", "gender", "ph_number", "email", "password"
@@ -37,33 +31,6 @@ public class Uses {
         headersMap.put("add_activities_form.csv", new String[]{
                 "activity_id", "activity_type", "activity_date"
         });
-    }
-
-    // Stages methods
-    public static Stage getCurrentStage(ActionEvent event) {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        return stage;
-    }
-
-    public static void changeScene(ActionEvent event, String sceneName, String title) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader((HelloApplication.class.getResource(sceneName)));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = getCurrentStage(event);
-        stage.setTitle(title);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public static void createPopup(String sceneName, String title) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader((MainPage.class.getResource(sceneName)));
-//        Maybe there's another way to implement this.
-        Stage popupStage = new Stage();
-        popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.setTitle(title);
-        popupStage.setScene(new Scene(fxmlLoader.load()));
-        popupStage.setResizable(false);
-        popupStage.showAndWait();
     }
 
     // CSV Methods (requires opencsv)
@@ -87,11 +54,13 @@ public class Uses {
 //            if file doesn't exist, create one
                 if (!Files.exists(filePath)) {
                     try {
-                        writeCSV(filePath.toString(), value, new String[]{});
+                        boolean isFileWritten = writeCSV(filePath.toString(), value, new String[]{});
+                        if (isFileWritten) {
+                            System.out.printf("Created %s with headers successfully.\n", filePath);
+                        }
                     } catch (IOException e) {
                         System.out.printf("Failed to write to file %s\n.", filePath);
                     }
-                    System.out.printf("Created %s with headers successfully.\n", filePath);
                 } else {
                     System.out.printf("File %s already exists. Skipping.\n", filePath);
                 }
@@ -112,7 +81,7 @@ public class Uses {
      * @return boolean {@code true} if file is written successfully {@code false} otherwise
      * @throws IOException when filename not found
      */
-    public static boolean writeCSV(String filename, String[] headers, List<String[]> data) {
+    public static boolean writeCSV(String filename, String[] headers, List<String[]> data) throws IOException {
         try (CSVWriter writer = new CSVWriter(new FileWriter(filename))) {
             writer.writeNext(headers);
 

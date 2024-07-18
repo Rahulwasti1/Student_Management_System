@@ -1,18 +1,14 @@
 package com.example.assignment.Admin;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.assignment.Uses.appendCSV;
-import static com.example.assignment.Uses.changeScene;
+import static com.example.assignment.Static.CSVUtils.appendCSV;
 
 // Java Doc
 
@@ -26,19 +22,20 @@ import static com.example.assignment.Uses.changeScene;
 public class AddNewStudentFormController implements Initializable {
 
     @FXML
-    TextField studentIdField, firstNameField, lastNameField, numberField, emailField, facultyField;
+    private TextField studentIdField, firstNameField, lastNameField, numberField, emailField, facultyField;
     @FXML
-    PasswordField passwordField;
-
-    @FXML
-    ComboBox<String> genderCombo;
+    private PasswordField passwordField;
 
     @FXML
-    public void clickManageStudent(ActionEvent event) throws IOException {
-        changeScene(event, "ManageStudents.fxml", "STUDENT MANAGEMENT SYSTEM");
-    }
+    private ComboBox<String> genderCombo;
 
+    @FXML
+    private Button addButton;
 
+    @FXML
+    private Label errorLabel;
+
+    @FXML
     public void onAddStudent() {
         String studentId = this.studentIdField.getText(),
                 firstName = this.firstNameField.getText(),
@@ -46,12 +43,26 @@ public class AddNewStudentFormController implements Initializable {
                 gender = this.genderCombo.getValue(),
                 phoneNumber = this.numberField.getText(),
                 email = this.emailField.getText(),
-                faculty = this.facultyField.getText();
+                faculty = this.facultyField.getText(),
+                password = this.passwordField.getText();
 
+        boolean areFieldsFilled = !studentId.isEmpty() && !firstName.isEmpty() && !lastName.isEmpty() && !gender.isEmpty() && !phoneNumber.isEmpty() && !email.isEmpty() && !faculty.isEmpty() && !password.isEmpty();
+        boolean isRecordAdded = false;
+
+        if (areFieldsFilled) {
+            errorLabel.setText("");
 //        refer to the headers for positioning
-        String[] data = new String[]{studentId, firstName, lastName, gender, phoneNumber, email, faculty};
+            String[] data = new String[]{studentId, firstName, lastName, gender, phoneNumber, email, faculty, password};
+            isRecordAdded = appendCSV("csv_files/add_student_form.csv", data);
 
-        appendCSV("csv_files/add_student_form.csv", data);
+            if (isRecordAdded) {
+                ((Stage) addButton.getScene().getWindow()).close();
+            } else {
+                errorLabel.setText("Failed to write data. Please try again!");
+            }
+        } else {
+            errorLabel.setText("Please fill in all the fields!");
+        }
     }
 
     @Override

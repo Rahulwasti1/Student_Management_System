@@ -11,7 +11,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static com.example.assignment.Uses.*;
+import static com.example.assignment.Static.CSVUtils.headersMap;
+import static com.example.assignment.Static.CSVUtils.readCSV;
+import static com.example.assignment.Static.Uses.changeScene;
+import static com.example.assignment.Static.Uses.createPopup;
 
 public class ManageStudentController implements Initializable {
     @FXML

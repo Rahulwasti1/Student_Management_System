@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static com.example.assignment.Uses.initializeFiles;
+import static com.example.assignment.Static.CSVUtils.initializeFiles;
 
 public class MainPage extends Application {
     public static void main(String[] args) {
