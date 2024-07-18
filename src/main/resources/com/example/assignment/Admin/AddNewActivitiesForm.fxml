@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="265.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/22"
+            fx:controller="com.example.assignment.Admin.AddNewActivitiesFormController">
+    <children>
+        <AnchorPane prefHeight="265.0" prefWidth="305.0" style="-fx-background-color: #2C3E50;">
+            <children>
+                <Label layoutX="77.0" layoutY="8.0" style="-fx-font-size: 20; -fx-text-fill: #E4A511;"
+                       text="Add New Activities"/>
+                <Label layoutX="23.0" layoutY="55.0" style="-fx-text-fill: white;" text="Activity Id"/>
+                <TextField fx:id="activityIdField" layoutX="23.0" layoutY="73.0" prefHeight="25.0" prefWidth="260.0"/>
+                <Label layoutX="23.0" layoutY="104.0" style="-fx-text-fill: white;" text="Activity Type"/>
+                <TextField fx:id="activityTypeField" layoutX="23.0" layoutY="121.0" prefHeight="26.0"
+                           prefWidth="260.0"/>
+                <Label layoutX="25.0" layoutY="153.0" style="-fx-text-fill: white;" text="Activity Date"/>
+                <DatePicker layoutX="23.0" layoutY="170.0" prefHeight="25.0" prefWidth="260.0"
+                            fx:id="activityDateField"/>
+                <Button fx:id="addButton" layoutX="23.0" layoutY="213.0" mnemonicParsing="false"
+                        onAction="#onAddActivity" prefHeight="30.0" prefWidth="260.0"
+                        style="-fx-background-color: #1ABC9C; -fx-text-fill: white;" text="Add">
+                    <font>
+                        <Font name="System Bold" size="13.0"/>
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
 package com.example.assignment;
 
-public class AddStaff {
+public class MainPageController {
 }

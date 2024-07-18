@@ -1,4 +1,4 @@
-package com.example.assignment;
+package com.example.assignment.Admin;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +23,7 @@ import static com.example.assignment.Uses.changeScene;
  * </p>
  */
 
-public class AdminAddNewStudentForm implements Initializable {
+public class AddNewStudentFormController implements Initializable {
 
     @FXML
     TextField studentIdField, firstNameField, lastNameField, numberField, emailField, facultyField;
@@ -35,11 +35,11 @@ public class AdminAddNewStudentForm implements Initializable {
 
     @FXML
     public void clickManageStudent(ActionEvent event) throws IOException {
-        changeScene(event, "Admin_ManageStudents.fxml", "STUDENT MANAGEMENT SYSTEM");
+        changeScene(event, "ManageStudents.fxml", "STUDENT MANAGEMENT SYSTEM");
     }
 
 
-    public void onAddStudent() throws IOException {
+    public void onAddStudent() {
         String studentId = this.studentIdField.getText(),
                 firstName = this.firstNameField.getText(),
                 lastName = this.lastNameField.getText(),

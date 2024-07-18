@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #DBE4EB;"
+            xmlns="http://javafx.com/javafx/22" fx:controller="com.example.assignment.Student.ViewProfileController">
+    <children>
+        <Pane layoutX="-1.0" layoutY="1.0" prefHeight="70.0" prefWidth="901.0" style="-fx-background-color: white;">
+            <children>
+                <Button layoutX="814.0" layoutY="10.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="70.0"
+                        style="-fx-background-color: none;"/>
+                <ImageView accessibleRole="BUTTON" fitHeight="43.0" fitWidth="45.0" layoutX="838.0" layoutY="15.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../ICON/User.png"/>
+                    </image>
+                </ImageView>
+                <Text layoutX="361.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Multiple Choice Questions">
+                    <font>
+                        <Font name="Arial Bold" size="21.0"/>
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <Pane layoutY="71.0" prefHeight="529.0" prefWidth="209.0" style="-fx-background-color: white;">
+            <children>
+                <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#clickStudentDashboard"
+                        prefHeight="44.0" prefWidth="211.0"
+                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
+                        text="Dashboard">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Button>
+                <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../ICON/Admin/Dashboard.png"/>
+                    </image>
+                </ImageView>
+                <Button layoutX="-1.0" layoutY="47.0" mnemonicParsing="false" onAction="#clickStudentViewProfile"
+                        prefHeight="44.0" prefWidth="211.0"
+                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
+                        text="View Profile">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Button>
+                <Button layoutX="-1.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickStudentViewCourse"
+                        prefHeight="44.0" prefWidth="211.0"
+                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
+                        text=" View Course">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Button>
+                <Button layoutX="-1.0" layoutY="139.0" mnemonicParsing="false" onAction="#clickStudentQuestionFrom"
+                        prefHeight="44.0" prefWidth="211.0"
+                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
+                        text="     Question Form">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Button>
+                <Button layoutX="-2.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickStudentReportFrom"
+                        prefHeight="44.0" prefWidth="211.0"
+                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
+                        text="      Report Problem">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Button>
+                <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="9.0" layoutY="54.0" pickOnBounds="true"
+                           preserveRatio="true" style="visibility: 2;">
+                    <image>
+                        <Image url="@../../../ICON/Student/ViewProfile.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="8.0" layoutY="100.0" pickOnBounds="true"
+                           preserveRatio="true" style="visibility: 2;">
+                    <image>
+                        <Image url="@../../../ICON/Student/ViewCourse.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="9.0" layoutY="145.0" pickOnBounds="true"
+                           preserveRatio="true" style="visibility: 2;">
+                    <image>
+                        <Image url="@../../../ICON/Student/QuestionForm.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="10.0" layoutY="189.0" pickOnBounds="true"
+                           preserveRatio="true" style="visibility: 2;">
+                    <image>
+                        <Image url="@../../../ICON/Student/ReportProblem.png"/>
+                    </image>
+                </ImageView>
+                <Button layoutX="35.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="44.0"
+                        prefWidth="141.0"
+                        style="-fx-background-color: none; -fx-border-color: none; -fx-background-radius: 0;"
+                        text="   Logout">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Button>
+                <ImageView accessibleRole="BUTTON" fitHeight="41.0" fitWidth="34.0" layoutX="52.0" layoutY="467.0"
+                           pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+                    <image>
+                        <Image url="@../../../../ICON/Logout.png"/>
+                    </image>
+                </ImageView>
+                <Button layoutX="-1.0" layoutY="231.0" mnemonicParsing="false" onAction="#clickStudentMCQ"
+                        prefHeight="44.0" prefWidth="211.0"
+                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
+                        text="MCQ">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Button>
+                <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="12.0" layoutY="236.0" pickOnBounds="true"
+                           preserveRatio="true" style="visibility: 2;">
+                    <image>
+                        <Image url="@../../../ICON/Student/MCQ.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <Pane layoutX="232.0" layoutY="78.0" prefHeight="184.0" prefWidth="639.0" style="-fx-background-color: white;">
+            <children>
+                <Button layoutX="431.0" layoutY="144.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0"
+                        style="-fx-background-color: #04368c; -fx-text-fill: white; -fx-background-radius: 5;"
+                        text="Submit">
+                    <font>
+                        <Font name="System Bold" size="13.0"/>
+                    </font>
+                </Button>
+                <Button layoutX="524.0" layoutY="144.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0"
+                        style="-fx-background-color: #04368c; -fx-text-fill: white; -fx-background-radius: 5;"
+                        text="Cancel">
+                    <font>
+                        <Font name="System Bold" size="13.0"/>
+                    </font>
+                </Button>
+                <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="What is the size of an int data type in Java?">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Text>
+                <CheckBox layoutX="17.0" layoutY="39.0" mnemonicParsing="false" text="4 bytes"/>
+                <CheckBox layoutX="17.0" layoutY="63.0" mnemonicParsing="false" text="2 bytes"/>
+                <CheckBox layoutX="17.0" layoutY="87.0" mnemonicParsing="false" text="8 bytes"/>
+                <CheckBox layoutX="17.0" layoutY="111.0" mnemonicParsing="false" text="1 bytes"/>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

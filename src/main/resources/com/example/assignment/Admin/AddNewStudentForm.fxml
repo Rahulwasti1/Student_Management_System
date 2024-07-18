@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="481.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/22"
+            fx:controller="com.example.assignment.Admin.AddNewStudentFormController">
+
+    <children>
+        <AnchorPane prefHeight="492.0" prefWidth="305.0" style="-fx-background-color: #2C3E50;">
+            <children>
+                <Label layoutX="76.0" layoutY="14.0" style="-fx-font-size: 20; -fx-text-fill: #E4A511;"
+                       text="Add New Student"/>
+                <Label layoutX="23.0" layoutY="55.0" style="-fx-text-fill: white;" text="Student Id"/>
+                <TextField fx:id="studentIdField" layoutX="23.0" layoutY="73.0" prefHeight="25.0" prefWidth="260.0"/>
+                <Label layoutX="23.0" layoutY="104.0" style="-fx-text-fill: white;" text="First Name"/>
+                <TextField fx:id="firstNameField" layoutX="23.0" layoutY="121.0" prefHeight="26.0" prefWidth="126.0"/>
+                <Label layoutX="158.0" layoutY="104.0" style="-fx-text-fill: white;" text="Last Name"/>
+                <TextField fx:id="lastNameField" layoutX="158.0" layoutY="122.0" prefHeight="26.0" prefWidth="125.0"/>
+                <Label layoutX="25.0" layoutY="153.0" style="-fx-text-fill: white;" text="Gender"/>
+                <ComboBox fx:id="genderCombo" layoutX="24.0" layoutY="174.0" prefHeight="26.0" prefWidth="257.0"
+                          promptText="Select Gender"/>
+                <Label layoutX="24.0" layoutY="206.0" style="-fx-text-fill: white;" text="Number"/>
+                <TextField fx:id="numberField" layoutX="24.0" layoutY="224.0" prefHeight="25.0" prefWidth="260.0"/>
+                <Label layoutX="25.0" layoutY="254.0" style="-fx-text-fill: white;" text="Email"/>
+                <TextField fx:id="emailField" layoutX="24.0" layoutY="272.0" prefHeight="25.0" prefWidth="260.0"/>
+                <Label layoutX="25.0" layoutY="302.0" style="-fx-text-fill: white;" text="Faculty"/>
+                <TextField fx:id="facultyField" layoutX="24.0" layoutY="320.0" prefHeight="25.0" prefWidth="260.0"/>
+                <Label layoutX="23.0" layoutY="351.0" style="-fx-text-fill: white;" text="Password"/>
+                <PasswordField fx:id="passwordField" layoutX="24.0" layoutY="374.0" prefHeight="25.0"
+                               prefWidth="260.0"/>
+                <Button fx:id="addButton" layoutX="24.0" layoutY="412.0" mnemonicParsing="false"
+                        onAction="#onAddStudent" prefHeight="30.0" prefWidth="260.0"
+                        style="-fx-background-color: #1ABC9C; -fx-text-fill: white;" text="Add">
+                    <font>
+                        <Font name="System Bold" size="13.0"/>
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

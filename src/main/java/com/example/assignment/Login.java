@@ -1,16 +1,20 @@
 package com.example.assignment;
 
-import javafx.fxml.FXML;
-
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static com.example.assignment.Uses.changeScene;
 
-public class Login {
+public class Login implements Initializable {
+    private String roleDashboard;
 
     @FXML
     private TextField emailField;
@@ -22,8 +26,16 @@ public class Login {
     private Label errorMessage;
 
     @FXML
+    private ComboBox<String> roleCombo;
+
+    @FXML
     public void handleAdminLogin(ActionEvent event) throws IOException {
-        changeScene(event, "AdminDashboard.fxml", "LOGIN PAGE");
+        changeScene(event, "Admin/Dashboard.fxml", "LOGIN PAGE");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.roleCombo.getItems().addAll("Student", "Teacher", "Admin");
     }
 
 //    @FXML
@@ -32,7 +44,7 @@ public class Login {
 //        String password = passwordField.getText();
 //
 //        if ("admin@gmail.com".equals(email) && "admin".equals(password)) {
-//            changeScene(event, "AdminDashboard.fxml", "Admin Dashboard");
+//            changeScene(event, String.format("%s/Dashboard.fxml", roleCombo.getValue()), "Admin Dashboard");
 //        } else {
 //            errorMessage.setText("Wrong email or password");
 //        }
