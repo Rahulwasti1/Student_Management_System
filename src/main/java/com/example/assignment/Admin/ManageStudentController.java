@@ -1,13 +1,16 @@
 package com.example.assignment.Admin;
 
+import com.example.assignment.Classes.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -18,7 +21,13 @@ import static com.example.assignment.Static.Uses.createPopup;
 
 public class ManageStudentController implements Initializable {
     @FXML
-    TableView manageStudentTable;
+    TableView<Student> manageStudentTable;
+
+    @FXML
+    TableColumn<Student, String> studentId, studentName, studentGender, studentNumber, studentPwd, studentEmail, studentFaculty;
+
+    @FXML
+    TableColumn<Student, Button> studentAction;
 
     @FXML
     public void clickAdminDashboard(ActionEvent event) throws IOException {
@@ -57,14 +66,22 @@ public class ManageStudentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        studentId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        studentName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        studentGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        studentNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        studentEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        studentFaculty.setCellValueFactory(new PropertyValueFactory<>("faculty"));
+        studentPwd.setCellValueFactory(new PropertyValueFactory<>("password"));
+        studentAction.setCellValueFactory(new PropertyValueFactory<>("action"));
         try {
-            List<String[]> data = readCSV("./csv_files/add_student_form.csv", headersMap.get("add_student_form.csv"));
-            for (String[] row : data) {
-//                what to do
+            List<Student> data = readCSV("./csv_files/add_student_form.csv", headersMap.get("add_student_form.csv"), Student.class);
+            for (Student student : data) {
+                manageStudentTable.getItems().add(student);
             }
         } catch (IOException e) {
-            System.out.println(Arrays.toString(e.getStackTrace()));
+            System.out.println(e.getMessage());
+            System.out.println(e.getLocalizedMessage());
         }
 
     }

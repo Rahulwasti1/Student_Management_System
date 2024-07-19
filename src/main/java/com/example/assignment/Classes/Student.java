@@ -11,17 +11,38 @@ public class Student {
     private String phoneNumber;
     private String email;
     private String faculty;
+    private String password;
     private Button action;
-
-    public Student(String id, String firstName, String lastName, String gender, String phoneNumber, String email, String faculty) {
+    public Student(String id, String firstName, String lastName, String gender, String phoneNumber, String email, String faculty, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.fullName = firstName + lastName;
+        this.fullName = firstName + " " + lastName;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.faculty = faculty;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", faculty='" + faculty + '\'' +
+                ", password='" + password + '\'' +
+                ", action=" + action +
+                '}';
     }
 
     public String getId() {

@@ -33,15 +33,15 @@
                 <Font name="System Bold" size="14.0"/>
             </font>
         </Button>
-        <TableView layoutX="218.0" layoutY="119.0" prefHeight="331.0" prefWidth="674.0">
+        <TableView layoutX="218.0" layoutY="119.0" prefHeight="331.0" prefWidth="674.0" fx:id="manageTeacherTable">
             <columns>
-                <TableColumn prefWidth="75.0" text="Id"/>
-                <TableColumn prefWidth="75.0" text="Name"/>
-                <TableColumn prefWidth="75.0" text=" Gender"/>
-                <TableColumn prefWidth="75.0" text="Phone"/>
-                <TableColumn prefWidth="75.0" text="Subject"/>
-                <TableColumn prefWidth="105.8394775390625" text="Email"/>
-                <TableColumn prefWidth="192.0" text="Action"/>
+                <TableColumn prefWidth="75.0" text="Id" fx:id="teacherId"/>
+                <TableColumn prefWidth="75.0" text="Name" fx:id="teacherName"/>
+                <TableColumn prefWidth="75.0" text=" Gender" fx:id="teacherGender"/>
+                <TableColumn prefWidth="75.0" text="Phone" fx:id="teacherNumber"/>
+                <TableColumn prefWidth="75.0" text="Subject" fx:id="teacherSubject"/>
+                <TableColumn prefWidth="105.8394775390625" text="Email" fx:id="teacherEmail"/>
+                <TableColumn prefWidth="192.0" text="Action" fx:id="teacherAction"/>
             </columns>
         </TableView>
         <Pane layoutY="71.0" prefHeight="529.0" prefWidth="209.0" style="-fx-background-color: white;">

@@ -7,13 +7,12 @@ import com.opencsv.exceptions.CsvValidationException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CSVUtils {
     public static final Map<String, String[]> headersMap = new HashMap<>();
@@ -164,22 +163,51 @@ public class CSVUtils {
      * @param headers  headers (column names) for the CSV file
      * @return {@code String[][]} a 2D array of strings containing CSV data
      */
-    public static List<String[]> readCSV(String filename, String[] headers) throws IOException {
-        ArrayList<String[]> records = new ArrayList<>();
+//    public static List<String[]> readCSV(String filename, String[] headers) throws IOException {
+//        ArrayList<String[]> records = new ArrayList<>();
+//        try (CSVReader reader = new CSVReader(new FileReader(filename))) {
+//            String[] nextLine;
+//            // exhaust the first line for headers
+//            if ((nextLine = reader.readNext()) != null) {
+//                if (!java.util.Arrays.equals(nextLine, headers)) {
+//                    throw new IOException("CSV headers do not match the provided headers.");
+//                }
+//            }
+//
+//            while ((nextLine = reader.readNext()) != null) {
+//                records.add(nextLine);
+//            }
+//        } catch (IOException | CsvValidationException exc) {
+//            System.out.println(exc.getMessage());
+//        }
+//
+//        return records;
+//    }
+    public static <T> List<T> readCSV(String filename, String[] headers, Class<T> clazz) throws IOException {
+        ArrayList<T> records = new ArrayList<>();
         try (CSVReader reader = new CSVReader(new FileReader(filename))) {
             String[] nextLine;
             // exhaust the first line for headers
             if ((nextLine = reader.readNext()) != null) {
                 if (!java.util.Arrays.equals(nextLine, headers)) {
                     throw new IOException("CSV headers do not match the provided headers.");
+                } else {
+//                    exhaust the second one because there's always
+//                    an empty line after the headers
+                    reader.readNext();
                 }
             }
-
+            Constructor<T> constructor = clazz.getConstructor(Arrays.stream(headers).map(h -> String.class).toArray(Class[]::new));
             while ((nextLine = reader.readNext()) != null) {
-                records.add(nextLine);
+                T object = constructor.newInstance((Object[]) nextLine);
+                records.add(object);
             }
         } catch (IOException | CsvValidationException exc) {
             System.out.println(exc.getMessage());
+        } catch (InvocationTargetException | NoSuchMethodException | InstantiationException |
+                 IllegalAccessException e) {
+            System.out.println(e.getLocalizedMessage());
+            e.getCause();
         }
 
         return records;

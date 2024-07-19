@@ -35,14 +35,14 @@
         </Button>
         <TableView layoutX="218.0" layoutY="119.0" prefHeight="331.0" prefWidth="674.0" fx:id="manageStudentTable">
             <columns>
-                <TableColumn prefWidth="75.0" text="Id"/>
-                <TableColumn prefWidth="75.0" text="Name"/>
-                <TableColumn prefWidth="75.0" text="Gender"/>
-                <TableColumn prefWidth="75.0" text="Number"/>
-                <TableColumn prefWidth="75.0" text="Password"/>
-                <TableColumn prefWidth="105.8394775390625" text="Email"/>
-                <TableColumn prefWidth="75.0" text="Faculty"/>
-                <TableColumn prefWidth="115.5782470703125" text="Action" fx:id="tableAction"/>
+                <TableColumn prefWidth="75.0" text="Id" fx:id="studentId"/>
+                <TableColumn prefWidth="75.0" text="Name" fx:id="studentName"/>
+                <TableColumn prefWidth="75.0" text="Gender" fx:id="studentGender"/>
+                <TableColumn prefWidth="75.0" text="Number" fx:id="studentNumber"/>
+                <TableColumn prefWidth="75.0" text="Password" fx:id="studentPwd"/>
+                <TableColumn prefWidth="105.8394775390625" text="Email" fx:id="studentEmail"/>
+                <TableColumn prefWidth="75.0" text="Faculty" fx:id="studentFaculty"/>
+                <TableColumn prefWidth="115.5782470703125" text="Action" fx:id="studentAction"/>
             </columns>
         </TableView>
         <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="336.0" layoutY="544.0" pickOnBounds="true"
