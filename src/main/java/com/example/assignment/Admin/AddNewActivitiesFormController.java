@@ -33,7 +33,6 @@ public class AddNewActivitiesFormController {
 
         boolean areFieldsFilled = !activityId.isEmpty() && !activityType.isEmpty() &&
                 (activityDate != null && !activityDate.isBefore(LocalDate.now()));
-        boolean isRecordAdded;
 
         if (!areFieldsFilled) {
             if (activityId.isEmpty()) {
@@ -50,11 +49,13 @@ public class AddNewActivitiesFormController {
                 dateErrorLabel.setText("This is a required field.");
             } else if (activityDate.isBefore(LocalDate.now())) {
                 dateErrorLabel.setText("Newer activities can't be in the past.");
+            } else {
+                dateErrorLabel.setText("");
             }
         } else {
             String[] data = new String[]{activityId, activityType, activityDate.toString()};
 
-            isRecordAdded = appendCSV("./csv_files/add_activities_form.csv", data);
+            boolean isRecordAdded = appendCSV("./csv_files/add_activities_form.csv", data);
 
             if (isRecordAdded) {
                 ((Stage) addButton.getScene().getWindow()).close();

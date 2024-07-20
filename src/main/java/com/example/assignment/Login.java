@@ -30,7 +30,7 @@ public class Login implements Initializable {
 
     @FXML
     public void handleAdminLogin(ActionEvent event) throws IOException {
-        changeScene(event, "Admin/Dashboard.fxml", "LOGIN PAGE");
+        changeScene(event, "Staff/Dashboard.fxml", "LOGIN PAGE");
     }
 
     @Override

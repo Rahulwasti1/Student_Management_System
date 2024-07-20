@@ -39,6 +39,9 @@ public class Uses {
         popupStage.setResizable(false);
 
 //        TODO: refresh the source stage
+        popupStage.setOnHidden(e -> {
+            Stage sourceStage = getCurrentStage(event);
+        });
         popupStage.showAndWait();
     }
 

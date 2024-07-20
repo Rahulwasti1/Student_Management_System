@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\csv_files\add_admission_form.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\csv_files\add_staff_form.csv">
           <value>
             <Attribute>
