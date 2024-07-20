@@ -56,8 +56,8 @@ public class ManageActivitiesController implements Initializable {
     }
 
     @FXML
-    public void onAddActivity() throws IOException {
-        createPopup("Admin/AddNewActivitiesForm.fxml", "Admin: Add a new activity");
+    public void onAddActivity(ActionEvent event) throws IOException {
+        createPopup(event, "Admin/AddNewActivitiesForm.fxml", "Admin: Add a new activity");
     }
 
     @Override

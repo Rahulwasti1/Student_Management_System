@@ -10,27 +10,32 @@
 
 <AnchorPane prefHeight="414.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment.Admin.AddNewStaffFormController">
     <children>
-        <AnchorPane prefHeight="487.0" prefWidth="305.0" style="-fx-background-color: #2C3E50;">
+        <AnchorPane prefHeight="496.0" prefWidth="305.0" style="-fx-background-color: #2C3E50;">
             <children>
                 <Label layoutX="95.0" layoutY="7.0" style="-fx-font-size: 20; -fx-text-fill: #E4A511;" text="Add New Staff" />
                 <Label layoutX="23.0" layoutY="55.0" style="-fx-text-fill: white;" text="Staff Id" />
                 <TextField fx:id="staffIdField" layoutX="23.0" layoutY="73.0" prefHeight="25.0" prefWidth="260.0" />
-                <Label layoutX="23.0" layoutY="114.0" style="-fx-text-fill: white;" text="Name" />
-                <TextField fx:id="nameField" layoutX="23.0" layoutY="131.0" prefHeight="26.0" prefWidth="260.0" />
-                <Label layoutX="24.0" layoutY="234.0" style="-fx-text-fill: white;" text="Number" />
-                <TextField fx:id="numberField" layoutX="24.0" layoutY="252.0" prefHeight="25.0" prefWidth="260.0" />
-                <Label layoutX="24.0" layoutY="173.0" style="-fx-text-fill: white;" text="Gender" />
-                <ComboBox fx:id="genderCombo" layoutX="25.0" layoutY="190.0" prefHeight="26.0" prefWidth="257.0" promptText="Select Gender" />
-                <Label layoutX="25.0" layoutY="293.0" style="-fx-text-fill: white;" text="Email" />
-                <TextField fx:id="emailField" layoutX="24.0" layoutY="311.0" prefHeight="25.0" prefWidth="260.0" />
-                <Label layoutX="24.0" layoutY="352.0" style="-fx-text-fill: white;" text="Password" />
-                <PasswordField fx:id="passwordField" layoutX="24.0" layoutY="371.0" prefHeight="25.0" prefWidth="260.0" />
-                <Button fx:id="addButton" layoutX="24.0" layoutY="424.0" mnemonicParsing="false" onAction="#onAddStaff" prefHeight="30.0" prefWidth="260.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white;" text="Add">
+                <Label layoutX="23.0" layoutY="115.0" style="-fx-text-fill: white;" text="Name" />
+                <TextField fx:id="nameField" layoutX="23.0" layoutY="132.0" prefHeight="26.0" prefWidth="260.0" />
+                <Label layoutX="23.0" layoutY="235.0" style="-fx-text-fill: white;" text="Number" />
+                <TextField fx:id="numberField" layoutX="23.0" layoutY="253.0" prefHeight="25.0" prefWidth="260.0" />
+                <Label layoutX="24.0" layoutY="175.0" style="-fx-text-fill: white;" text="Gender" />
+                <ComboBox fx:id="genderCombo" layoutX="25.0" layoutY="192.0" prefHeight="26.0" prefWidth="257.0" promptText="Select Gender" />
+                <Label layoutX="25.0" layoutY="297.0" style="-fx-text-fill: white;" text="Email" />
+                <TextField fx:id="emailField" layoutX="25.0" layoutY="315.0" prefHeight="25.0" prefWidth="260.0" />
+                <Label layoutX="26.0" layoutY="359.0" style="-fx-text-fill: white;" text="Password" />
+                <PasswordField fx:id="passwordField" layoutX="26.0" layoutY="378.0" prefHeight="25.0" prefWidth="260.0" />
+                <Button fx:id="addButton" layoutX="26.0" layoutY="429.0" mnemonicParsing="false" onAction="#onAddStaff" prefHeight="30.0" prefWidth="260.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white;" text="Add">
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font>
                 </Button>
-            <Label fx:id="errorLabel" alignment="CENTER" layoutX="29.0" layoutY="37.0" prefHeight="17.0" prefWidth="248.0" textAlignment="CENTER" textFill="#f27c7c" />
+            <Label fx:id="idErrorLabel" alignment="CENTER" layoutX="23.0" layoutY="98.0" prefHeight="17.0" prefWidth="248.0" textAlignment="CENTER" textFill="#f27c7c" />
+            <Label fx:id="nameErrorLabel" alignment="CENTER" layoutX="23.0" layoutY="158.0" prefHeight="17.0" prefWidth="248.0" textAlignment="CENTER" textFill="#f27c7c" />
+            <Label fx:id="genderErrorLabel" alignment="CENTER" layoutX="23.0" layoutY="218.0" prefHeight="17.0" prefWidth="248.0" textAlignment="CENTER" textFill="#f27c7c" />
+            <Label fx:id="numberErrorLabel" alignment="CENTER" layoutX="23.0" layoutY="280.0" prefHeight="17.0" prefWidth="248.0" textAlignment="CENTER" textFill="#f27c7c" />
+            <Label fx:id="emailErrorLabel" alignment="CENTER" layoutX="24.0" layoutY="342.0" prefHeight="17.0" prefWidth="248.0" textAlignment="CENTER" textFill="#f27c7c" />
+            <Label fx:id="passwordErrorLabel" alignment="CENTER" layoutX="25.0" layoutY="403.0" prefHeight="17.0" prefWidth="248.0" textAlignment="CENTER" textFill="#f27c7c" />
             </children>
         </AnchorPane>
     </children>

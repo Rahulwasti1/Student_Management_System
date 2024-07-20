@@ -22,7 +22,8 @@ import static com.example.assignment.Static.CSVUtils.appendCSV;
 public class AddNewStudentFormController implements Initializable {
 
     @FXML
-    private TextField studentIdField, firstNameField, lastNameField, numberField, emailField, facultyField;
+    private TextField studentIdField, firstNameField, lastNameField,
+            numberField, emailField, facultyField;
     @FXML
     private PasswordField passwordField;
 
@@ -33,7 +34,8 @@ public class AddNewStudentFormController implements Initializable {
     private Button addButton;
 
     @FXML
-    private Label errorLabel;
+    private Label idErrorLabel, facultyErrorLabel, nameErrorLabel,
+            genderErrorLabel, numberErrorLabel, emailErrorLabel, passwordErrorLabel;
 
     @FXML
     public void onAddStudent() {
@@ -46,22 +48,56 @@ public class AddNewStudentFormController implements Initializable {
                 faculty = this.facultyField.getText(),
                 password = this.passwordField.getText();
 
-        boolean areFieldsFilled = !studentId.isEmpty() && !firstName.isEmpty() && !lastName.isEmpty() && !gender.isEmpty() && !phoneNumber.isEmpty() && !email.isEmpty() && !faculty.isEmpty() && !password.isEmpty();
-        boolean isRecordAdded = false;
+        boolean areFieldsFilled = !studentId.isEmpty() && !firstName.isEmpty() && !lastName.isEmpty() &&
+                !gender.isEmpty() && (!phoneNumber.isEmpty() && phoneNumber.matches("^\\d{10}")) &&
+                !email.isEmpty() && !faculty.isEmpty() && !password.isEmpty();
+        boolean isRecordAdded;
 
-        if (areFieldsFilled) {
-            errorLabel.setText("");
+        if (!areFieldsFilled) {
+            if (studentId.isEmpty()) {
+                idErrorLabel.setText("This is a required field.");
+            } else {
+                idErrorLabel.setText("");
+            }
+            if (firstName.isEmpty() || lastName.isEmpty()) {
+                nameErrorLabel.setText("This is a required field.");
+            } else {
+                nameErrorLabel.setText("");
+            }
+            if (gender == null || gender.isEmpty()) {
+                genderErrorLabel.setText("This is a required field.");
+            } else {
+                genderErrorLabel.setText("");
+            }
+            if (phoneNumber.length() < 10) {
+                numberErrorLabel.setText("Please enter a valid phone number.");
+            } else {
+                numberErrorLabel.setText("");
+            }
+            if (!email.matches("[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}")) {
+                emailErrorLabel.setText("Please enter a valid email.");
+            } else {
+                emailErrorLabel.setText("");
+            }
+            if (faculty.isEmpty()) {
+                facultyErrorLabel.setText("This is a required field.");
+            } else {
+                facultyErrorLabel.setText("");
+            }
+            if (password.length() < 8) {
+                passwordErrorLabel.setText("Passwords must be greater than 8 characters.");
+            } else {
+                passwordErrorLabel.setText("");
+            }
+
+        } else {
 //        refer to the headers for positioning
             String[] data = new String[]{studentId, firstName, lastName, gender, phoneNumber, email, faculty, password};
             isRecordAdded = appendCSV("csv_files/add_student_form.csv", data);
 
             if (isRecordAdded) {
                 ((Stage) addButton.getScene().getWindow()).close();
-            } else {
-                errorLabel.setText("Failed to write data. Please try again!");
             }
-        } else {
-            errorLabel.setText("Please fill in all the fields!");
         }
     }
 

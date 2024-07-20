@@ -61,7 +61,7 @@ public class ManageStudentController implements Initializable {
 
     @FXML
     public void onAddStudent(ActionEvent event) throws IOException {
-        createPopup("Admin/AddNewStudentForm.fxml", "Admin: Add new student");
+        createPopup(event, "Admin/AddNewStudentForm.fxml", "Admin: Add new student");
     }
 
     @Override

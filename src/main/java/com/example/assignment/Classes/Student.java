@@ -13,6 +13,7 @@ public class Student {
     private String faculty;
     private String password;
     private Button action;
+
     public Student(String id, String firstName, String lastName, String gender, String phoneNumber, String email, String faculty, String password) {
         this.id = id;
         this.firstName = firstName;
@@ -25,8 +26,20 @@ public class Student {
         this.password = password;
     }
 
+    public Button getAction() {
+        return action;
+    }
+
+    public void setAction(Button action) {
+        this.action = action;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

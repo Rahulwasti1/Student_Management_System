@@ -29,7 +29,7 @@ public class Uses {
         stage.show();
     }
 
-    public static void createPopup(String sceneName, String title) throws IOException {
+    public static void createPopup(ActionEvent event, String sceneName, String title) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader((MainPage.class.getResource(sceneName)));
 //        Maybe there's another way to implement this.
         Stage popupStage = new Stage();
@@ -37,6 +37,8 @@ public class Uses {
         popupStage.setTitle(title);
         popupStage.setScene(new Scene(fxmlLoader.load()));
         popupStage.setResizable(false);
+
+//        TODO: refresh the source stage
         popupStage.showAndWait();
     }
 

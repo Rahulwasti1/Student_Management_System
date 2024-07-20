@@ -157,32 +157,19 @@ public class CSVUtils {
     }
 
     /**
-     * Reads a CSV file and returns the content as a 2D array of strings.
+     * Reads a CSV file and returns the content as a List of the generic Type
      *
      * @param filename path of the CSV file
      * @param headers  headers (column names) for the CSV file
-     * @return {@code String[][]} a 2D array of strings containing CSV data
+     * @param clazz    the class of the {@code T} generic
+     * @param <T>      Type
+     * @return {@code List<T>}
+     * @throws IOException when filename not found
      */
-//    public static List<String[]> readCSV(String filename, String[] headers) throws IOException {
-//        ArrayList<String[]> records = new ArrayList<>();
-//        try (CSVReader reader = new CSVReader(new FileReader(filename))) {
-//            String[] nextLine;
-//            // exhaust the first line for headers
-//            if ((nextLine = reader.readNext()) != null) {
-//                if (!java.util.Arrays.equals(nextLine, headers)) {
-//                    throw new IOException("CSV headers do not match the provided headers.");
-//                }
-//            }
-//
-//            while ((nextLine = reader.readNext()) != null) {
-//                records.add(nextLine);
-//            }
-//        } catch (IOException | CsvValidationException exc) {
-//            System.out.println(exc.getMessage());
-//        }
-//
-//        return records;
-//    }
+
+//    Honestly, this is such a lame method. It depends entirely on the CSV
+//    headers and the positional arguments of the constructor of  T?
+//    There's probably a better way to do this.
     public static <T> List<T> readCSV(String filename, String[] headers, Class<T> clazz) throws IOException {
         ArrayList<T> records = new ArrayList<>();
         try (CSVReader reader = new CSVReader(new FileReader(filename))) {
@@ -197,8 +184,22 @@ public class CSVUtils {
                     reader.readNext();
                 }
             }
-            Constructor<T> constructor = clazz.getConstructor(Arrays.stream(headers).map(h -> String.class).toArray(Class[]::new));
+
+//            So, I guess what this *line* of code really does is just
+//            find the constructor class of T corresponding to the header
+//            (its length and sequence? - and types?)
+            Constructor<T> constructor = clazz.getConstructor(
+                    Arrays.stream(headers)
+//                            for each header (h), map it to String.class type
+//                            this assumes all CSV fields are of type `String`
+                            .map(h -> String.class)
+//                            Collect the mapped `String.class` into an array?
+                            .toArray(Class[]::new)
+            );
+
             while ((nextLine = reader.readNext()) != null) {
+//                Convert the `String[]` type nextLine array to `Object[]`
+//                and of course, instantiate an object
                 T object = constructor.newInstance((Object[]) nextLine);
                 records.add(object);
             }

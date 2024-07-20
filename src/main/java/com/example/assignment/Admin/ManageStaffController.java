@@ -59,8 +59,8 @@ public class ManageStaffController implements Initializable {
     }
 
     @FXML
-    public void onAddStaff() throws IOException {
-        createPopup("Admin/AddNewStaffForm.fxml", "Admin: Add a new staff");
+    public void onAddStaff(ActionEvent event) throws IOException {
+        createPopup(event, "Admin/AddNewStaffForm.fxml", "Admin: Add a new staff");
     }
 
     @Override
@@ -70,7 +70,7 @@ public class ManageStaffController implements Initializable {
         staffGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         staffEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         staffNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
-        
+
         try {
             List<Staff> data = readCSV("./csv_files/add_staff_form.csv", headersMap.get("add_staff_form.csv"), Staff.class);
 

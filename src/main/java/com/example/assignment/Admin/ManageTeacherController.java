@@ -60,8 +60,8 @@ public class ManageTeacherController implements Initializable {
     }
 
     @FXML
-    public void onAddTeacher() throws IOException {
-        createPopup("Admin/AddNewTeacherForm.fxml", "Admin: Add a new teacher");
+    public void onAddTeacher(ActionEvent event) throws IOException {
+        createPopup(event, "Admin/AddNewTeacherForm.fxml", "Admin: Add a new teacher");
     }
 
     @Override

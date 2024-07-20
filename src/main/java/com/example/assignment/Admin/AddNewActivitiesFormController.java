@@ -22,7 +22,7 @@ public class AddNewActivitiesFormController {
     private Button addButton;
 
     @FXML
-    private Label errorLabel;
+    private Label idErrorLabel, typeErrorLabel, dateErrorLabel;
 
     @FXML
     public void onAddActivity() {
@@ -31,22 +31,34 @@ public class AddNewActivitiesFormController {
         LocalDate activityDate = activityDateField.getValue();
 
 
-        boolean areFieldsFilled = !activityId.isEmpty() && !activityType.isEmpty() && !(activityDate == null);
-        boolean isRecordAdded = false;
+        boolean areFieldsFilled = !activityId.isEmpty() && !activityType.isEmpty() &&
+                (activityDate != null && !activityDate.isBefore(LocalDate.now()));
+        boolean isRecordAdded;
 
-        if (areFieldsFilled) {
-            errorLabel.setText("");
+        if (!areFieldsFilled) {
+            if (activityId.isEmpty()) {
+                idErrorLabel.setText("This is a required field.");
+            } else {
+                idErrorLabel.setText("");
+            }
+            if (activityType.isEmpty()) {
+                typeErrorLabel.setText("This is a required field.");
+            } else {
+                typeErrorLabel.setText("");
+            }
+            if (activityDate == null) {
+                dateErrorLabel.setText("This is a required field.");
+            } else if (activityDate.isBefore(LocalDate.now())) {
+                dateErrorLabel.setText("Newer activities can't be in the past.");
+            }
+        } else {
             String[] data = new String[]{activityId, activityType, activityDate.toString()};
 
             isRecordAdded = appendCSV("./csv_files/add_activities_form.csv", data);
 
             if (isRecordAdded) {
                 ((Stage) addButton.getScene().getWindow()).close();
-            } else {
-                errorLabel.setText("Failed to write data. Please try again!");
             }
-        } else {
-            errorLabel.setText("Please fill in all the fields!");
         }
 
 
