@@ -2,8 +2,10 @@ package com.example.assignment.Static;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
 import com.opencsv.exceptions.CsvValidationException;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -42,6 +44,9 @@ public class CSVUtils {
         headersMap.put("add_question_form.csv", new String[]{
                 "qn_id", "qn_pos", "qn_text"
         });
+        headersMap.put("add_mcq.csv", new String[]{
+                "quiz_id", "quiz_text", "option1", "option2", "option3", "option4"
+        });
     }
 
     // CSV Methods (requires opencsv)
@@ -60,6 +65,7 @@ public class CSVUtils {
                 Files.createDirectory(directoryPath);
             }
 
+//            go through the hashmap, and create a file with columns for each entry
             headersMap.forEach((key, value) -> {
                 Path filePath = Paths.get(DIRECTORY_NAME, key);
 //            if file doesn't exist, create one
@@ -224,5 +230,53 @@ public class CSVUtils {
         }
 
         return records;
+    }
+
+    public static boolean updateCSV(String filename, String where, Map<String, String> updates) throws FileNotFoundException {
+        try (CSVReader reader = new CSVReader(new FileReader(filename))) {
+            List<String[]> lines = reader.readAll();
+            if (lines.isEmpty()) {
+                throw new FileNotFoundException("File is empty!");
+            }
+
+//            because first line is always headers
+            String[] headers = lines.get(0);
+//            second one is blank
+
+            int whereIndex = -1;
+
+            Map<String, Integer> columnIndexMap = new HashMap<>();
+
+            for (int i = 0; i < headers.length; i++) {
+                if (headers[i].equals(where)) {
+                    whereIndex = i;
+                }
+                columnIndexMap.put(headers[i], i);
+            }
+
+            if (whereIndex == -1) {
+                throw new IllegalArgumentException("Column doesn't exist!");
+            }
+
+            for (String[] row : lines) {
+                if (row[whereIndex].equals(where)) {
+                    for (Map.Entry<String, String> entry : updates.entrySet()) {
+                        String columnName = entry.getKey();
+                        String newValue = entry.getValue();
+                        Integer columnIndex = columnIndexMap.get(columnName);
+
+                        if (columnIndex != null) {
+                            row[columnIndex] = newValue;
+                        } else {
+                            throw new IllegalArgumentException("Column '" + columnName + "' does not exist in CSV");
+                        }
+                    }
+                }
+            }
+        } catch (IOException | CsvException | IllegalArgumentException e) {
+            System.out.println(e.getLocalizedMessage());
+            e.getCause();
+        }
+        return false;
     }
 }
