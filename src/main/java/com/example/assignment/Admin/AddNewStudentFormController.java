@@ -74,7 +74,9 @@ public class AddNewStudentFormController implements Initializable {
             } else {
                 numberErrorLabel.setText("");
             }
-            if (!email.matches("[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}")) {
+            if (email.isEmpty()) {
+                emailErrorLabel.setText("This field is required.");
+            } else if (!email.matches("[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}")) {
                 emailErrorLabel.setText("Please enter a valid email.");
             } else {
                 emailErrorLabel.setText("");

@@ -1,134 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity"
-            prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #DBE4EB;"
-            xmlns="http://javafx.com/javafx/22" fx:controller="com.example.assignment.Admin.ManageStudentController">
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #DBE4EB;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment.Teacher.GradeManagementController">
     <children>
         <Pane layoutX="-1.0" layoutY="1.0" prefHeight="70.0" prefWidth="901.0" style="-fx-background-color: white;">
             <children>
-                <Button layoutX="814.0" layoutY="10.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="70.0"
-                        style="-fx-background-color: none;"/>
-                <ImageView accessibleRole="BUTTON" fitHeight="43.0" fitWidth="45.0" layoutX="838.0" layoutY="15.0"
-                           pickOnBounds="true" preserveRatio="true">
+                <Button layoutX="814.0" layoutY="10.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="70.0" style="-fx-background-color: none;" />
+                <ImageView accessibleRole="BUTTON" fitHeight="43.0" fitWidth="45.0" layoutX="838.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../../ICON/User.png"/>
+                        <Image url="@../../../../ICON/User.png" />
                     </image>
                 </ImageView>
                 <Text layoutX="395.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grade Management">
                     <font>
-                        <Font name="Arial Bold" size="21.0"/>
+                        <Font name="Arial Bold" size="21.0" />
                     </font>
                 </Text>
             </children>
         </Pane>
-        <Button layoutX="218.0" layoutY="75.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="141.0"
-                style="-fx-background-color: #364CC0; -fx-text-fill: white;" text="+ Add New Grade">
+        <Button layoutX="218.0" layoutY="75.0" mnemonicParsing="false" onAction="#onAddNewGrade" prefHeight="38.0" prefWidth="141.0" style="-fx-background-color: #364CC0; -fx-text-fill: white;" text="+ Add New Grade">
             <font>
-                <Font name="System Bold" size="14.0"/>
+                <Font name="System Bold" size="14.0" />
             </font>
         </Button>
         <TableView layoutX="218.0" layoutY="119.0" prefHeight="331.0" prefWidth="674.0">
             <columns>
-                <TableColumn prefWidth="75.0" text="Id"/>
-                <TableColumn prefWidth="135.0" text="Name"/>
-                <TableColumn prefWidth="89.0" text=" Gender"/>
-                <TableColumn minWidth="1.0" prefWidth="107.0" text="Percentage"/>
-                <TableColumn minWidth="0.0" prefWidth="169.0" text="Email"/>
-                <TableColumn minWidth="0.0" prefWidth="98.0" text="Action"/>
+                <TableColumn fx:id="gradeId" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="studentName" prefWidth="135.0" text="Name" />
+                <TableColumn fx:id="studentGender" prefWidth="89.0" text=" Gender" />
+                <TableColumn fx:id="gradePercentage" minWidth="1.0" prefWidth="107.0" text="Percentage" />
+                <TableColumn fx:id="studentEmail" minWidth="0.0" prefWidth="169.0" text="Email" />
+                <TableColumn fx:id="gradeAction" minWidth="0.0" prefWidth="98.0" text="Action" />
             </columns>
         </TableView>
-        <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="336.0" layoutY="544.0" pickOnBounds="true"
-                   preserveRatio="true"/>
+        <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="336.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true" />
         <Pane layoutY="71.0" prefHeight="529.0" prefWidth="209.0" style="-fx-background-color: white;">
             <children>
-                <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#clickStudentDashboard"
-                        prefHeight="44.0" prefWidth="211.0"
-                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
-                        text="Dashboard">
+                <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#clickTeacherDashboard" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="Dashboard">
                     <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </Button>
-                <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../../ICON/Admin/Dashboard.png"/>
+                        <Image url="@../../../../ICON/Admin/Dashboard.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="-1.0" layoutY="47.0" mnemonicParsing="false" onAction="#clickStudentViewProfile"
-                        prefHeight="44.0" prefWidth="211.0"
-                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
-                        text="                 Grade Management">
+                <Button layoutX="-1.0" layoutY="47.0" mnemonicParsing="false" onAction="#clickTeacherViewGrades" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="                 Grade Management">
                     <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="-1.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickStudentViewCourse"
-                        prefHeight="44.0" prefWidth="211.0"
-                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
-                        text="                 View Question Form">
+                <Button layoutX="-1.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickTeacherViewQuestionForm" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="                 View Question Form">
                     <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="-1.0" layoutY="139.0" mnemonicParsing="false" onAction="#clickStudentQuestionFrom"
-                        prefHeight="44.0" prefWidth="211.0"
-                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
-                        text="              View Problem Form">
+                <Button layoutX="-1.0" layoutY="139.0" mnemonicParsing="false" onAction="#clickTeacherProblemForm" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="              View Problem Form">
                     <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="-2.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickStudentReportFrom"
-                        prefHeight="44.0" prefWidth="211.0"
-                        style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
-                        text="Create MCQ">
+                <Button layoutX="-2.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickTeacherCreateMCQ" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;" text="Create MCQ">
                     <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </Button>
-                <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="9.0" layoutY="54.0" pickOnBounds="true"
-                           preserveRatio="true" style="visibility: 2;">
+                <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="9.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Teacher/GradeManagement.png"/>
+                        <Image url="@../../../../ICON/Teacher/GradeManagement.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="10.0" layoutY="100.0" pickOnBounds="true"
-                           preserveRatio="true" style="visibility: 2;">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="10.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Teacher/ViewQuestionForm.png"/>
+                        <Image url="@../../../../ICON/Teacher/ViewQuestionForm.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="7.0" layoutY="146.0" pickOnBounds="true"
-                           preserveRatio="true" style="visibility: 2;">
+                <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="7.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Teacher/StudentProbelmForm.png"/>
+                        <Image url="@../../../../ICON/Teacher/StudentProbelmForm.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="9.0" layoutY="189.0" pickOnBounds="true"
-                           preserveRatio="true" style="visibility: 2;">
+                <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="9.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/ReportProblem.png"/>
+                        <Image url="@../../../../ICON/Student/ReportProblem.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="35.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="44.0"
-                        prefWidth="141.0"
-                        style="-fx-background-color: none; -fx-border-color: none; -fx-background-radius: 0;"
-                        text="   Logout">
+                <Button layoutX="35.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: none; -fx-border-color: none; -fx-background-radius: 0;" text="   Logout">
                     <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </Button>
-                <ImageView accessibleRole="BUTTON" fitHeight="41.0" fitWidth="34.0" layoutX="52.0" layoutY="467.0"
-                           pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
+                <ImageView accessibleRole="BUTTON" fitHeight="41.0" fitWidth="34.0" layoutX="52.0" layoutY="467.0" pickOnBounds="true" preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../../ICON/Logout.png"/>
+                        <Image url="@../../../../ICON/Logout.png" />
                     </image>
                 </ImageView>
             </children>

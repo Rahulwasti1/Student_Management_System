@@ -21,26 +21,26 @@ public class ViewProfileController {
 
     @FXML
     public void clickStudentViewProfile(ActionEvent event) throws IOException {
-        changeScene(event, "Student/ManageStudents.fxml", "STUDENT MANAGEMENT SYSTEM");
+        changeScene(event, "Student/ViewProfile.fxml", "STUDENT MANAGEMENT SYSTEM");
     }
 
     @FXML
     public void clickStudentViewCourse(ActionEvent event) throws IOException {
-        changeScene(event, "Student/ManageTeacher.fxml", "STUDENT MANAGEMENT SYSTEM");
+        changeScene(event, "Student/ViewCourse.fxml", "STUDENT MANAGEMENT SYSTEM");
     }
 
     @FXML
     public void clickStudentQuestionFrom(ActionEvent event) throws IOException {
-        changeScene(event, "Student/ManageStaff.fxml", "STUDENT MANAGEMENT SYSTEM");
+        changeScene(event, "Student/QuestionForm.fxml", "STUDENT MANAGEMENT SYSTEM");
     }
 
     @FXML
     public void clickStudentReportFrom(ActionEvent event) throws IOException {
-        changeScene(event, "Student/ManageActivities.fxml", "STUDENT MANAGEMENT SYSTEM");
+        changeScene(event, "Student/ReportProblem.fxml", "STUDENT MANAGEMENT SYSTEM");
     }
 
     @FXML
     public void clickStudentMCQ(ActionEvent event) throws IOException {
-        changeScene(event, "Student/ManageActivities.fxml", "STUDENT MANAGEMENT SYSTEM");
+        changeScene(event, "Student/MCQ.fxml", "STUDENT MANAGEMENT SYSTEM");
     }
 }

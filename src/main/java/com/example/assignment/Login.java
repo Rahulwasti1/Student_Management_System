@@ -30,12 +30,34 @@ public class Login implements Initializable {
 
     @FXML
     public void handleAdminLogin(ActionEvent event) throws IOException {
-        changeScene(event, "Staff/Dashboard.fxml", "LOGIN PAGE");
+        String role = roleCombo.getValue();
+        switch (role) {
+            case "Student":
+                changeScene(event, "Student/Dashboard.fxml", "Student Dashboard");
+                break;
+
+            case "Teacher":
+                changeScene(event, "Teacher/Dashboard.fxml", "Teacher Dashboard");
+                break;
+
+            case "Admin":
+                changeScene(event, "Admin/Dashboard.fxml", "Admin Dashboard");
+                break;
+
+            case "Staff":
+                changeScene(event, "Staff/Dashboard.fxml", "Staff Dashboard");
+                break;
+
+            default:
+                break;
+
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.roleCombo.getItems().addAll("Student", "Teacher", "Admin");
+        this.roleCombo.getItems().addAll("Student", "Teacher", "Staff", "Admin");
+        this.roleCombo.setValue("Student");
     }
 
 //    @FXML

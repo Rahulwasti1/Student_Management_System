@@ -43,4 +43,9 @@ public class DashboardController {
     public void clickStudentMCQ(ActionEvent event) throws IOException {
         changeScene(event, "Student/MCQ.fxml", "STUDENT MANAGEMENT SYSTEM");
     }
+
+    @FXML
+    public void clickEnrolledCourse(ActionEvent event) throws IOException {
+        changeScene(event, "Student/EnrolledCourse.fxml", "Student - Courses");
+    }
 }

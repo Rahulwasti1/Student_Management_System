@@ -8,7 +8,7 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity"
             prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #DBE4EB;"
-            xmlns="http://javafx.com/javafx/22" fx:controller="com.example.assignment.Student.ViewProfileController">
+            xmlns="http://javafx.com/javafx/22" fx:controller="com.example.assignment.Student.DashboardController">
     <children>
         <Pane layoutX="-1.0" layoutY="1.0" prefHeight="70.0" prefWidth="901.0" style="-fx-background-color: white;">
             <children>
@@ -79,25 +79,25 @@
                 <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="9.0" layoutY="54.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/ViewProfile.png"/>
+                        <Image url="@../../../../ICON/Student/ViewProfile.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="8.0" layoutY="100.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/ViewCourse.png"/>
+                        <Image url="@../../../../ICON/Student/ViewCourse.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="9.0" layoutY="145.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/QuestionForm.png"/>
+                        <Image url="@../../../../ICON/Student/QuestionForm.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="10.0" layoutY="189.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/ReportProblem.png"/>
+                        <Image url="@../../../../ICON/Student/ReportProblem.png"/>
                     </image>
                 </ImageView>
                 <Button layoutX="35.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="44.0"
@@ -125,7 +125,7 @@
                 <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="12.0" layoutY="236.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/MCQ.png"/>
+                        <Image url="@../../../../ICON/Student/MCQ.png"/>
                     </image>
                 </ImageView>
             </children>

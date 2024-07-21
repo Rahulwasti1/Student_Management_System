@@ -36,6 +36,12 @@ public class CSVUtils {
         headersMap.put("add_details.csv", new String[]{
                 "student_id", "student_name", "book_name", "book_number", "book_status"
         });
+        headersMap.put("add_grade_form.csv", new String[]{
+                "student_id", "name", "gender", "percentage", "email", "status"
+        });
+        headersMap.put("add_question_form.csv", new String[]{
+                "qn_id", "qn_pos", "qn_text"
+        });
     }
 
     // CSV Methods (requires opencsv)

@@ -41,6 +41,7 @@ public class Uses {
 //        TODO: refresh the source stage
         popupStage.setOnHidden(e -> {
             Stage sourceStage = getCurrentStage(event);
+            sourceStage.setScene(sourceStage.getScene());
         });
         popupStage.showAndWait();
     }

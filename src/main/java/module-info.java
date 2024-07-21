@@ -18,4 +18,6 @@ module com.example.assignment {
     opens com.example.assignment.Static to javafx.fxml;
     exports com.example.assignment.Staff;
     opens com.example.assignment.Staff to javafx.fxml;
+    exports com.example.assignment.Teacher;
+    opens com.example.assignment.Teacher to javafx.fxml;
 }

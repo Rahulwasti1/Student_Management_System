@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="414.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/22"
-            fx:controller="com.example.assignment.Admin.AddNewStudentFormController">
+
+<AnchorPane prefHeight="414.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment.Teacher.AddNewGradeController">
     <children>
-        <AnchorPane prefHeight="414.0" prefWidth="305.0"
-                    style="-fx-background-color: #2C3E50; -fx-background-radius: 10;">
+        <AnchorPane prefHeight="508.0" prefWidth="305.0" style="-fx-background-color: #2C3E50;">
             <children>
-                <Label layoutX="95.0" layoutY="7.0" style="-fx-font-size: 20; -fx-text-fill: #E4A511;"
-                       text="Add New Grade"/>
-                <Label layoutX="23.0" layoutY="55.0" style="-fx-text-fill: white;" text="Student  Id"/>
-                <TextField fx:id="studentIdField" layoutX="23.0" layoutY="73.0" prefHeight="25.0" prefWidth="260.0"/>
-                <Label layoutX="23.0" layoutY="104.0" style="-fx-text-fill: white;" text="Name"/>
-                <TextField fx:id="nameField" layoutX="23.0" layoutY="121.0" prefHeight="26.0" prefWidth="260.0"/>
-                <Label layoutX="25.0" layoutY="254.0" style="-fx-text-fill: white;" text="Email"/>
-                <TextField fx:id="emailField" layoutX="24.0" layoutY="224.0" prefHeight="25.0" prefWidth="260.0"/>
-                <Button fx:id="addButton" layoutX="24.0" layoutY="364.0" mnemonicParsing="false"
-                        onAction="#clickManageStudent" prefHeight="30.0" prefWidth="260.0"
-                        style="-fx-background-color: #1ABC9C; -fx-text-fill: white;" text="Add">
+                <Label layoutX="95.0" layoutY="7.0" style="-fx-font-size: 20; -fx-text-fill: #E4A511;" text="Add New Grade" />
+                <Label layoutX="23.0" layoutY="55.0" style="-fx-text-fill: white;" text="Student  Id" />
+                <TextField fx:id="studentIdField" layoutX="23.0" layoutY="73.0" prefHeight="25.0" prefWidth="260.0" />
+                <Label layoutX="22.0" layoutY="115.0" style="-fx-text-fill: white;" text="Name" />
+                <TextField fx:id="nameField" layoutX="22.0" layoutY="132.0" prefHeight="26.0" prefWidth="260.0" />
+                <Label layoutX="25.0" layoutY="299.0" style="-fx-text-fill: white;" text="Email" />
+                <TextField fx:id="percentageField" layoutX="23.0" layoutY="257.0" prefHeight="25.0" prefWidth="260.0" />
+                <Button fx:id="addButton" layoutX="25.0" layoutY="435.0" mnemonicParsing="false" onAction="#onAddGrade" prefHeight="30.0" prefWidth="260.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white;" text="Add">
                     <font>
-                        <Font name="System Bold" size="13.0"/>
+                        <Font name="System Bold" size="13.0" />
                     </font>
                 </Button>
-                <ComboBox layoutX="24.0" layoutY="174.0" prefHeight="26.0" prefWidth="257.0"
-                          promptText="Select Gender"/>
-                <Label layoutX="25.0" layoutY="153.0" style="-fx-text-fill: white;" text="Gender"/>
-                <TextField fx:id="emailField1" layoutX="24.0" layoutY="272.0" prefHeight="25.0" prefWidth="260.0"/>
-                <Label layoutX="24.0" layoutY="206.0" style="-fx-text-fill: white;" text="Percentage"/>
-                <Label layoutX="23.0" layoutY="303.0" style="-fx-text-fill: white;" text="Status"/>
-                <ComboBox layoutX="23.0" layoutY="321.0" prefHeight="26.0" prefWidth="260.0"
-                          promptText="Select Status"/>
+                <ComboBox fx:id="genderCombo" layoutX="23.0" layoutY="196.0" prefHeight="26.0" prefWidth="257.0" promptText="Select Gender" />
+                <Label layoutX="24.0" layoutY="175.0" style="-fx-text-fill: white;" text="Gender" />
+                <TextField fx:id="emailField" layoutX="24.0" layoutY="317.0" prefHeight="25.0" prefWidth="260.0" />
+                <Label layoutX="23.0" layoutY="239.0" style="-fx-text-fill: white;" text="Percentage" />
+                <Label layoutX="24.0" layoutY="359.0" style="-fx-text-fill: white;" text="Status" />
+                <ComboBox fx:id="statusCombo" layoutX="24.0" layoutY="377.0" prefHeight="26.0" prefWidth="260.0" promptText="Select Status" />
+                <Label fx:id="idErrorLabel" alignment="CENTER" layoutX="23.0" layoutY="98.0" prefHeight="17.0" prefWidth="257.0" textFill="#f27c7c" />
+                <Label fx:id="nameErrorLabel" alignment="CENTER" layoutX="23.0" layoutY="158.0" prefHeight="17.0" prefWidth="257.0" textFill="#f27c7c" />
+                <Label fx:id="genderErrorLabel" alignment="CENTER" layoutX="24.0" layoutY="222.0" prefHeight="17.0" prefWidth="257.0" textFill="#f27c7c" />
+                <Label fx:id="percentageErrorLabel" alignment="CENTER" layoutX="26.0" layoutY="282.0" prefHeight="17.0" prefWidth="257.0" textFill="#f27c7c" />
+                <Label fx:id="emailErrorLabel" alignment="CENTER" layoutX="23.0" layoutY="342.0" prefHeight="17.0" prefWidth="257.0" textFill="#f27c7c" />
+                <Label fx:id="statusErrorLabel" alignment="CENTER" layoutX="23.0" layoutY="403.0" prefHeight="17.0" prefWidth="257.0" textFill="#f27c7c" />
             </children>
         </AnchorPane>
     </children>

@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #DBE4EB;"
-            xmlns="http://javafx.com/javafx/22" fx:controller="com.example.assignment.Student.DashboardController">
+            xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.assignment.Student.ViewCourseController">
     <children>
         <Pane layoutX="-1.0" layoutY="1.0" prefHeight="70.0" prefWidth="901.0" style="-fx-background-color: white;">
             <children>
@@ -78,25 +77,25 @@
                 <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="9.0" layoutY="54.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/ViewProfile.png"/>
+                        <Image url="@../../../../ICON/Student/ViewProfile.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="8.0" layoutY="100.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/ViewCourse.png"/>
+                        <Image url="@../../../../ICON/Student/ViewCourse.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="9.0" layoutY="145.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/QuestionForm.png"/>
+                        <Image url="@../../../../ICON/Student/QuestionForm.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="10.0" layoutY="189.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/ReportProblem.png"/>
+                        <Image url="@../../../../ICON/Student/ReportProblem.png"/>
                     </image>
                 </ImageView>
                 <Button layoutX="35.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="44.0"
@@ -124,7 +123,7 @@
                 <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="12.0" layoutY="236.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/MCQ.png"/>
+                        <Image url="@../../../../ICON/Student/MCQ.png"/>
                     </image>
                 </ImageView>
             </children>
@@ -136,14 +135,14 @@
                     <children>
                         <Circle fill="WHITE" layoutX="100.0" layoutY="68.0" radius="58.0" stroke="BLACK"
                                 strokeType="INSIDE"/>
-                        <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="31.0"
-                                prefWidth="172.0"
+                        <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" onAction="#clickEnrolledCourse"
+                                prefHeight="31.0" prefWidth="172.0"
                                 style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;"
                                 text="View Enrolled Course"/>
                         <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="68.0" layoutY="42.0" pickOnBounds="true"
                                    preserveRatio="true">
                             <image>
-                                <Image url="@../../../ICON/Student/ViewEnrolledCourse.png"/>
+                                <Image url="@../../../../ICON/Student/ViewEnrolledCourse.png"/>
                             </image>
                         </ImageView>
                     </children>
@@ -153,14 +152,14 @@
                     <children>
                         <Circle fill="WHITE" layoutX="100.0" layoutY="68.0" radius="58.0" stroke="BLACK"
                                 strokeType="INSIDE"/>
-                        <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false"
-                                onAction="#clickstudentviewreport" prefHeight="31.0" prefWidth="172.0"
+                        <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="31.0"
+                                prefWidth="172.0"
                                 style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;"
                                 text="View Report"/>
                         <ImageView fitHeight="92.0" fitWidth="77.0" layoutX="58.0" layoutY="44.0" pickOnBounds="true"
                                    preserveRatio="true">
                             <image>
-                                <Image url="@../../../ICON/Student/ViewReport.png"/>
+                                <Image url="@../../../../ICON/Student/ViewReport.png"/>
                             </image>
                         </ImageView>
                     </children>

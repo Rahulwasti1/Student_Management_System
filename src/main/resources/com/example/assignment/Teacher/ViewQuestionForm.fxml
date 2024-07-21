@@ -5,10 +5,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #DBE4EB;"
-            xmlns="http://javafx.com/javafx/22" fx:controller="com.example.assignment.Admin.ManageStudentController">
+            xmlns="http://javafx.com/javafx/22"
+            fx:controller="com.example.assignment.Teacher.ViewQuestionFormController">
     <children>
         <Pane layoutX="-1.0" layoutY="1.0" prefHeight="70.0" prefWidth="901.0" style="-fx-background-color: white;">
             <children>
@@ -27,19 +27,19 @@
                 </Text>
             </children>
         </Pane>
-        <TableView layoutX="218.0" layoutY="77.0" prefHeight="331.0" prefWidth="674.0">
+        <TableView fx:id="questionTable" layoutX="218.0" layoutY="77.0" prefHeight="331.0" prefWidth="674.0">
             <columns>
-                <TableColumn prefWidth="75.0" text="Id"/>
-                <TableColumn prefWidth="138.0" text="Creator Name"/>
-                <TableColumn minWidth="0.0" prefWidth="328.0" text="Question Text"/>
-                <TableColumn prefWidth="132.0" text="Status"/>
+                <TableColumn prefWidth="75.0" text="Id" fx:id="questionId"/>
+                <TableColumn prefWidth="138.0" text="Creator Name" fx:id="questionCreator"/>
+                <TableColumn minWidth="0.0" prefWidth="328.0" text="Question Text" fx:id="questionText"/>
+                <TableColumn prefWidth="132.0" text="Status" fx:id="questionStatus"/>
             </columns>
         </TableView>
         <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="336.0" layoutY="544.0" pickOnBounds="true"
                    preserveRatio="true"/>
         <Pane layoutY="71.0" prefHeight="529.0" prefWidth="209.0" style="-fx-background-color: white;">
             <children>
-                <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#clickStudentDashboard"
+                <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#clickTeacherDashboard"
                         prefHeight="44.0" prefWidth="211.0"
                         style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
                         text="Dashboard">
@@ -53,7 +53,7 @@
                         <Image url="@../../../../ICON/Admin/Dashboard.png"/>
                     </image>
                 </ImageView>
-                <Button layoutX="-1.0" layoutY="47.0" mnemonicParsing="false" onAction="#clickStudentViewProfile"
+                <Button layoutX="-1.0" layoutY="47.0" mnemonicParsing="false" onAction="#clickTeacherViewGrades"
                         prefHeight="44.0" prefWidth="211.0"
                         style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
                         text="                 Grade Management">
@@ -61,7 +61,7 @@
                         <Font name="System Bold" size="15.0"/>
                     </font>
                 </Button>
-                <Button layoutX="-1.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickStudentViewCourse"
+                <Button layoutX="-1.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickTeacherViewQuestionForm"
                         prefHeight="44.0" prefWidth="211.0"
                         style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
                         text="                 View Question Form">
@@ -69,7 +69,7 @@
                         <Font name="System Bold" size="15.0"/>
                     </font>
                 </Button>
-                <Button layoutX="-1.0" layoutY="139.0" mnemonicParsing="false" onAction="#clickStudentQuestionFrom"
+                <Button layoutX="-1.0" layoutY="139.0" mnemonicParsing="false" onAction="#clickTeacherProblemForm"
                         prefHeight="44.0" prefWidth="211.0"
                         style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
                         text="              View Problem Form">
@@ -77,7 +77,7 @@
                         <Font name="System Bold" size="15.0"/>
                     </font>
                 </Button>
-                <Button layoutX="-2.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickStudentReportFrom"
+                <Button layoutX="-2.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickTeacherCreateMCQ"
                         prefHeight="44.0" prefWidth="211.0"
                         style="-fx-background-color: none; -fx-border-color: grey; -fx-background-radius: 20;"
                         text="Create MCQ">
@@ -88,25 +88,25 @@
                 <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="9.0" layoutY="54.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Teacher/GradeManagement.png"/>
+                        <Image url="@../../../../ICON/Teacher/GradeManagement.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="10.0" layoutY="100.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Teacher/ViewQuestionForm.png"/>
+                        <Image url="@../../../../ICON/Teacher/ViewQuestionForm.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="7.0" layoutY="146.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Teacher/StudentProbelmForm.png"/>
+                        <Image url="@../../../../ICON/Teacher/StudentProbelmForm.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="9.0" layoutY="189.0" pickOnBounds="true"
                            preserveRatio="true" style="visibility: 2;">
                     <image>
-                        <Image url="@../../../ICON/Student/ReportProblem.png"/>
+                        <Image url="@../../../../ICON/Student/ReportProblem.png"/>
                     </image>
                 </ImageView>
                 <Button layoutX="35.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="44.0"
