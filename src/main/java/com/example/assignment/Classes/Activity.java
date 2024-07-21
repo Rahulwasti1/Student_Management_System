@@ -1,26 +1,30 @@
 package com.example.assignment.Classes;
 
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 
 public class Activity {
+    private final HBox action;
     private String id;
     private String type;
     private String date;
-    private Button action;
 
     public Activity(String id, String type, String date) {
         this.id = id;
         this.type = type;
         this.date = date;
+
+        Button editButton = new Button("Edit");
+        Button deleteButton = new Button("Delete");
+
+        this.action = new HBox(5);
+        this.action.getChildren().addAll(editButton, deleteButton);
     }
 
-    public Button getAction() {
+    public HBox getAction() {
         return action;
     }
 
-    public void setAction(Button action) {
-        this.action = action;
-    }
 
     public String getId() {
         return id;

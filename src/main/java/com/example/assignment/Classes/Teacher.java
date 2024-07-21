@@ -1,8 +1,10 @@
 package com.example.assignment.Classes;
 
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 
 public class Teacher {
+    private final HBox action;
     private String id;
     private String name;
     private String gender;
@@ -10,7 +12,6 @@ public class Teacher {
     private String email;
     private String password;
     private String subject;
-    private Button action;
 
     public Teacher(String id, String name, String gender, String number, String email, String password) {
         this.id = id;
@@ -20,6 +21,12 @@ public class Teacher {
         this.email = email;
         this.password = password;
         setSubject("None");
+
+        Button editButton = new Button("Edit");
+        Button deleteButton = new Button("Delete");
+
+        this.action = new HBox(5);
+        this.action.getChildren().addAll(editButton, deleteButton);
     }
 
     public String getSubject() {
@@ -76,5 +83,9 @@ public class Teacher {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public HBox getAction() {
+        return action;
     }
 }

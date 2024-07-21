@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +27,7 @@ public class ManageStaffController implements Initializable {
     TableColumn<Staff, String> staffId, staffName, staffGender, staffNumber, staffEmail;
 
     @FXML
-    TableColumn<Staff, ?> staffAction;
+    TableColumn<Staff, HBox> staffAction;
 
     @FXML
     public void clickAdminDashboard(ActionEvent event) throws IOException {
@@ -70,6 +71,7 @@ public class ManageStaffController implements Initializable {
         staffGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         staffEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         staffNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
+        staffAction.setCellValueFactory(new PropertyValueFactory<>("action"));
 
         try {
             List<Staff> data = readCSV("./csv_files/add_staff_form.csv", headersMap.get("add_staff_form.csv"), Staff.class);

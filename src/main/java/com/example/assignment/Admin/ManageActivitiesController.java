@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +25,9 @@ public class ManageActivitiesController implements Initializable {
 
     @FXML
     TableColumn<Activity, String> activityId, activityType, activityDate;
+
+    @FXML
+    TableColumn<Activity, HBox> activityAction;
 
     @FXML
     public void clickAdminDashboard(ActionEvent event) throws IOException {
@@ -65,6 +69,7 @@ public class ManageActivitiesController implements Initializable {
         activityId.setCellValueFactory(new PropertyValueFactory<>("id"));
         activityType.setCellValueFactory(new PropertyValueFactory<>("type"));
         activityDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        activityAction.setCellValueFactory(new PropertyValueFactory<>("action"));
 
         try {
             List<Activity> data = readCSV("./csv_files/add_activities_form.csv", headersMap.get("add_activities_form.csv"), Activity.class);

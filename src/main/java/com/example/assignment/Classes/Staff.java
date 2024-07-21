@@ -1,15 +1,16 @@
 package com.example.assignment.Classes;
 
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 
 public class Staff {
+    private final HBox action;
     private String id;
     private String name;
     private String number;
     private String gender;
     private String email;
     private String password;
-    private Button action;
 
     public Staff(String id, String name, String gender, String number, String email, String password) {
         this.id = id;
@@ -18,6 +19,11 @@ public class Staff {
         this.gender = gender;
         this.email = email;
         this.password = password;
+
+        Button editButton = new Button("Edit");
+        Button deleteButton = new Button("Delete");
+        this.action = new HBox(5);
+        this.action.getChildren().addAll(editButton, deleteButton);
     }
 
     public String getPassword() {
@@ -68,11 +74,7 @@ public class Staff {
         this.email = email;
     }
 
-    public Button getAction() {
+    public HBox getAction() {
         return action;
-    }
-
-    public void setAction(Button action) {
-        this.action = action;
     }
 }

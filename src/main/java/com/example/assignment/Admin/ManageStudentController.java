@@ -4,10 +4,10 @@ import com.example.assignment.Classes.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,7 +27,7 @@ public class ManageStudentController implements Initializable {
     TableColumn<Student, String> studentId, studentName, studentGender, studentNumber, studentPwd, studentEmail, studentFaculty;
 
     @FXML
-    TableColumn<Student, Button> studentAction;
+    TableColumn<Student, HBox> studentAction;
 
     @FXML
     public void clickAdminDashboard(ActionEvent event) throws IOException {

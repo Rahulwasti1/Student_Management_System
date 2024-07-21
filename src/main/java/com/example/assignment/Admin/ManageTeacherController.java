@@ -4,10 +4,10 @@ import com.example.assignment.Classes.Teacher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,7 +28,7 @@ public class ManageTeacherController implements Initializable {
     TableColumn<Teacher, String> teacherId, teacherName, teacherGender, teacherNumber, teacherSubject, teacherEmail;
 
     @FXML
-    TableColumn<Teacher, Button> teacherAction;
+    TableColumn<Teacher, HBox> teacherAction;
 
     @FXML
     public void clickAdminDashboard(ActionEvent event) throws IOException {
@@ -72,6 +72,7 @@ public class ManageTeacherController implements Initializable {
         teacherGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         teacherNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
         teacherSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
+        teacherAction.setCellValueFactory(new PropertyValueFactory<>("action"));
 
         try {
             List<Teacher> data = readCSV("./csv_files/add_teacher_form.csv", headersMap.get("add_teacher_form.csv"), Teacher.class);
