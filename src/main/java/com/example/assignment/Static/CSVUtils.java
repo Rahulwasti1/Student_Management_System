@@ -2,10 +2,8 @@ package com.example.assignment.Static;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
-import com.opencsv.exceptions.CsvException;
 import com.opencsv.exceptions.CsvValidationException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -42,7 +40,7 @@ public class CSVUtils {
                 "student_id", "name", "gender", "percentage", "email", "status"
         });
         headersMap.put("add_question_form.csv", new String[]{
-                "qn_id", "qn_pos", "qn_text"
+                "qn_id", "qn_pos", "qn_text", "status"
         });
         headersMap.put("add_mcq.csv", new String[]{
                 "quiz_id", "quiz_text", "option1", "option2", "option3", "option4"
@@ -71,7 +69,7 @@ public class CSVUtils {
 //            if file doesn't exist, create one
                 if (!Files.exists(filePath)) {
                     try {
-                        boolean isFileWritten = writeCSV(filePath.toString(), value, new String[]{});
+                        boolean isFileWritten = writeCSV(filePath.toString(), value, (String[]) null);
                         if (isFileWritten) {
                             System.out.printf("Created %s with headers successfully.\n", filePath);
                         }
@@ -96,21 +94,22 @@ public class CSVUtils {
      * @param headers  headers (column names) for the CSV file
      * @param data     records for the CSV file
      * @return boolean {@code true} if file is written successfully {@code false} otherwise
-     * @throws IOException when filename not found
      */
-    public static boolean writeCSV(String filename, String[] headers, List<String[]> data) throws IOException {
+    public static boolean writeCSV(String filename, String[] headers, List<String[]> data) {
         try (CSVWriter writer = new CSVWriter(new FileWriter(filename))) {
             writer.writeNext(headers);
 
             for (String[] record : data) {
-                writer.writeNext(record);
+                if (record != null) {
+                    writer.writeNext(record);
+                }
             }
 
             return true;
         } catch (IOException exc) {
             System.out.println(exc.getMessage());
-            return false;
         }
+        return false;
     }
 
 
@@ -126,13 +125,15 @@ public class CSVUtils {
     public static boolean writeCSV(String filename, String[] headers, String[] record) throws IOException {
         try (CSVWriter writer = new CSVWriter(new FileWriter(filename))) {
             writer.writeNext(headers);
-            writer.writeNext(record);
+            if (record != null) {
+                writer.writeNext(record);
+            }
 
             return true;
         } catch (IOException exc) {
             System.out.println(exc.getMessage());
-            return false;
         }
+        return false;
     }
 
     /**
@@ -196,10 +197,6 @@ public class CSVUtils {
             if ((nextLine = reader.readNext()) != null) {
                 if (!java.util.Arrays.equals(nextLine, headers)) {
                     throw new IOException("CSV headers do not match the provided headers.");
-                } else {
-//                    exhaust the second one because there's always
-//                    an empty line after the headers
-                    reader.readNext();
                 }
             }
 
@@ -232,51 +229,53 @@ public class CSVUtils {
         return records;
     }
 
-    public static boolean updateCSV(String filename, String where, Map<String, String> updates) throws FileNotFoundException {
+    public static boolean updateCSV(String filename, String[] headers, String id, String[] updatedData) throws IOException {
+//        create a temporary list of records
+        List<String[]> allLines = new ArrayList<>();
+
         try (CSVReader reader = new CSVReader(new FileReader(filename))) {
-            List<String[]> lines = reader.readAll();
-            if (lines.isEmpty()) {
-                throw new FileNotFoundException("File is empty!");
+            String[] nextLine;
+            // headers
+            if (!Arrays.equals(reader.readNext(), headers)) {
+                throw new CsvValidationException("Invalid headers.");
             }
 
-//            because first line is always headers
-            String[] headers = lines.get(0);
-//            second one is blank
-
-            int whereIndex = -1;
-
-            Map<String, Integer> columnIndexMap = new HashMap<>();
-
-            for (int i = 0; i < headers.length; i++) {
-                if (headers[i].equals(where)) {
-                    whereIndex = i;
-                }
-                columnIndexMap.put(headers[i], i);
-            }
-
-            if (whereIndex == -1) {
-                throw new IllegalArgumentException("Column doesn't exist!");
-            }
-
-            for (String[] row : lines) {
-                if (row[whereIndex].equals(where)) {
-                    for (Map.Entry<String, String> entry : updates.entrySet()) {
-                        String columnName = entry.getKey();
-                        String newValue = entry.getValue();
-                        Integer columnIndex = columnIndexMap.get(columnName);
-
-                        if (columnIndex != null) {
-                            row[columnIndex] = newValue;
-                        } else {
-                            throw new IllegalArgumentException("Column '" + columnName + "' does not exist in CSV");
-                        }
-                    }
+//            basically, diff and merging them
+            while ((nextLine = reader.readNext()) != null) {
+//                if the ids match, add the updatedData to the list
+                if (nextLine[0].equals(id)) {
+                    allLines.add(updatedData);
+                } else {
+                    allLines.add(nextLine);
                 }
             }
-        } catch (IOException | CsvException | IllegalArgumentException e) {
-            System.out.println(e.getLocalizedMessage());
-            e.getCause();
+
+            return writeCSV(filename, headers, allLines);
+        } catch (CsvValidationException e) {
+//            do something that cleans up the method and just not fck up the program
+            System.out.println(e.getLocalizedMessage()); // not this
         }
         return false;
+    }
+
+    public static void deleteCSV(String filename, String id) {
+        List<String[]> allLines = new ArrayList<>();
+        String[] headers;
+
+        try (CSVReader reader = new CSVReader(new FileReader(filename))) {
+            String[] newLine;
+            headers = reader.readNext();
+
+            while ((newLine = reader.readNext()) != null) {
+                if (!newLine[0].equals(id)) {
+                    allLines.add(newLine);
+                }
+            }
+
+            writeCSV(filename, headers, allLines);
+        } catch (IOException | CsvValidationException e) {
+            System.out.println(e.getMessage());
+            e.getCause();
+        }
     }
 }

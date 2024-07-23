@@ -1,25 +1,19 @@
 package com.example.assignment.Admin;
 
+import com.example.assignment.Classes.Student;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.assignment.Static.CSVUtils.appendCSV;
+import static com.example.assignment.Static.CSVUtils.headersMap;
+import static com.example.assignment.Static.CSVUtils.updateCSV;
 
-// Java Doc
-
-/**
- * <h1><code>AdminAddNewStudentForm.java</code></h1>
- * <p>
- * Controller file to manage new students.
- * </p>
- */
-
-public class AddNewStudentFormController implements Initializable {
+public class EditStudentFormController implements Initializable {
     @FXML
     private TextField studentIdField, firstNameField, lastNameField,
             numberField, emailField, facultyField;
@@ -36,8 +30,20 @@ public class AddNewStudentFormController implements Initializable {
     private Label idErrorLabel, facultyErrorLabel, nameErrorLabel,
             genderErrorLabel, numberErrorLabel, emailErrorLabel, passwordErrorLabel;
 
+    public void setStudent(Student student) {
+        this.studentIdField.setDisable(true);
+        this.studentIdField.setText(student.getId());
+        this.firstNameField.setText(student.getFirstName());
+        this.lastNameField.setText(student.getLastName());
+        this.genderCombo.setValue(student.getGender());
+        this.numberField.setText(student.getPhoneNumber());
+        this.emailField.setText(student.getEmail());
+        this.facultyField.setText(student.getFaculty());
+        this.passwordField.setText(student.getPassword());
+    }
+
     @FXML
-    public void onAddStudent() {
+    public void onAddStudent() throws IOException {
         String studentId = this.studentIdField.getText(),
                 firstName = this.firstNameField.getText(),
                 lastName = this.lastNameField.getText(),
@@ -94,7 +100,7 @@ public class AddNewStudentFormController implements Initializable {
         } else {
 //        refer to the headers for positioning
             String[] data = new String[]{studentId, firstName, lastName, gender, phoneNumber, email, faculty, password};
-            isRecordAdded = appendCSV("csv_files/add_student_form.csv", data);
+            isRecordAdded = updateCSV("./csv_files/add_student_form.csv", headersMap.get("add_student_form.csv"), studentId, data);
 
             if (isRecordAdded) {
                 ((Stage) addButton.getScene().getWindow()).close();

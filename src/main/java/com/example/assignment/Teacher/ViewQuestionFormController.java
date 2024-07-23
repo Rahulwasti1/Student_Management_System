@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +23,10 @@ public class ViewQuestionFormController implements Initializable {
     TableView<Question> questionTable;
 
     @FXML
-    TableColumn<Question, String> questionId, questionCreator, questionText, questionStatus;
+    TableColumn<Question, String> questionId, questionCreator, questionText;
+
+    @FXML
+    TableColumn<Question, HBox> questionStatus;
 
     @FXML
     public void clickTeacherDashboard(ActionEvent event) throws IOException {
@@ -69,8 +73,8 @@ public class ViewQuestionFormController implements Initializable {
                 questionTable.getItems().add(qn);
             }
         } catch (IOException e) {
-            System.out.println(e.getLocalizedMessage());
-            e.getCause();
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

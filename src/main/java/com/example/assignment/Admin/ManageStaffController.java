@@ -81,7 +81,6 @@ public class ManageStaffController implements Initializable {
             }
         } catch (IOException e) {
             System.out.println(e.getLocalizedMessage());
-            System.out.println(e.getStackTrace());
             e.getCause();
         }
     }

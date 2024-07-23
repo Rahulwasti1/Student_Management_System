@@ -1,91 +1,94 @@
 package com.example.assignment.Classes;
 
+import com.example.assignment.Admin.EditStudentFormController;
+import com.example.assignment.DeleteConfirmationController;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-public class Student {
+import java.io.IOException;
+
+public class Student extends User {
     private final HBox action;
-    private String id;
-    private String firstName;
-    private String lastName;
     private String fullName;
     private String gender;
     private String phoneNumber;
-    private String email;
     private String faculty;
-    private String password;
 
     public Student(String id, String firstName, String lastName, String gender, String phoneNumber, String email, String faculty, String password) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.setId(id);
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
         this.fullName = firstName + " " + lastName;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
-        this.email = email;
+        this.setEmail(email);
         this.faculty = faculty;
-        this.password = password;
+        this.setPassword(password);
 
+        this.action = createActionButtons();
+
+    }
+
+    private HBox createActionButtons() {
         Button editButton = new Button("Edit");
         Button deleteButton = new Button("Delete");
 
+        editButton.setOnAction(this::onEditPopup);
+        deleteButton.setOnAction(this::onDeletePopup);
 
-        this.action = new HBox(5);
-        this.action.getChildren().addAll(editButton, deleteButton);
+        HBox action = new HBox(5);
+        action.getChildren().addAll(editButton, deleteButton);
+
+        return action;
+    }
+
+    private void onEditPopup(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/assignment/Admin/EditStudentForm.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+
+            EditStudentFormController controller = fxmlLoader.getController();
+            controller.setStudent(this);
+
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setTitle("Edit Activity");
+            popupStage.setScene(scene);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void onDeletePopup(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/assignment/DeleteConfirmation.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+
+            DeleteConfirmationController controller = fxmlLoader.getController();
+            controller.setEntity("./csv_files/add_student_form.csv", this.getId());
+
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setTitle("Delete Confirmation");
+            popupStage.setScene(scene);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public HBox getAction() {
         return action;
     }
 
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", gender='" + gender + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", faculty='" + faculty + '\'' +
-                ", password='" + password + '\'' +
-                ", action=" + action +
-                '}';
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getFullName() {
         return fullName;
@@ -95,10 +98,12 @@ public class Student {
         this.fullName = fullName;
     }
 
+    @Override
     public String getGender() {
         return gender;
     }
 
+    @Override
     public void setGender(String gender) {
         this.gender = gender;
     }
@@ -109,14 +114,6 @@ public class Student {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getFaculty() {

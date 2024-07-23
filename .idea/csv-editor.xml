@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\csv_files\add_grade_form.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\csv_files\add_question_form.csv">
           <value>
             <Attribute>

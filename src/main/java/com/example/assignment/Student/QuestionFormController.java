@@ -2,8 +2,8 @@ package com.example.assignment.Student;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.io.IOException;
 
 import static com.example.assignment.Static.CSVUtils.appendCSV;
@@ -58,7 +58,7 @@ public class QuestionFormController {
         boolean allFieldFilled = !qnId.isEmpty() && !qnPosition.isEmpty() && !qnText.isEmpty();
 
         if (allFieldFilled) {
-            String[] data = new String[]{qnId, qnPosition, qnText};
+            String[] data = new String[]{qnId, qnPosition, qnText, "Pending"};
             boolean isRecordWritten = appendCSV("./csv_files/add_question_form.csv", data);
 
             if (isRecordWritten) {

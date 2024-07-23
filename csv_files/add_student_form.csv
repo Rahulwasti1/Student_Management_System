@@ -1,9 +1,3 @@
 "student_id","first_name","last_name","gender","ph_number","email","faculty","password"
-
-stu13257891,"Hari","Mainali","Male","9812345678","harimandal@gmail.com","Computer Science",ramailo123
-"stu44472812","Ram","Mandal","Male","9845612378","rammandal@gmail.com","Computer Science","12345678"
-"stu78425154","Priyanka","Nadal","Female","1234578",nobara@gmail.com,"Computer Science","gojosatoruballs"
-"stu171717","Prem","Gurung","Male","981245789","prem@gurung.com","Computer Science","12345678"
-"12345678","Ram","Bandal","Female","1234567890","ramb@gmail.coms","Business Administration","rambandal420"
-"stu12343333","Abhay","Pode","Male","9845454554","pode@pode.com","Computer Science","podepodepode"
-,,,,,
+"stu66994455","Rahul","Wasti","Male","9832415784","rahulwasti@gmail.com","Computer Science","wastidawg"
+"stu12345678","Amogh","Shakya","Male","9847389691","amoghshakya@outlook.com","Computer Science","ramailo123"

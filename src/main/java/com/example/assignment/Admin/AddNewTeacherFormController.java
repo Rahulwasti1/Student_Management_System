@@ -53,7 +53,7 @@ public class AddNewTeacherFormController implements Initializable {
             } else {
                 genderErrorLabel.setText("");
             }
-            if (number.length() < 10) {
+            if (number.length() != 10) {
                 numberErrorLabel.setText("Please enter a valid phone number.");
             } else {
                 numberErrorLabel.setText("");

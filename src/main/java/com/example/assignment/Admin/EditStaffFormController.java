@@ -1,16 +1,19 @@
 package com.example.assignment.Admin;
 
+import com.example.assignment.Classes.Staff;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.assignment.Static.CSVUtils.appendCSV;
+import static com.example.assignment.Static.CSVUtils.headersMap;
+import static com.example.assignment.Static.CSVUtils.updateCSV;
 
-public class AddNewStaffFormController implements Initializable {
+public class EditStaffFormController implements Initializable {
     @FXML
     private TextField staffIdField, nameField, numberField, emailField;
 
@@ -21,13 +24,23 @@ public class AddNewStaffFormController implements Initializable {
     private ComboBox<String> genderCombo;
 
     @FXML
-    private Button addButton;
+    private Button addButton, cancelButton;
 
     @FXML
     private Label idErrorLabel, nameErrorLabel, genderErrorLabel, numberErrorLabel, emailErrorLabel, passwordErrorLabel;
 
+    public void setStaff(Staff staff) {
+        this.staffIdField.setDisable(true);
+        this.staffIdField.setText(staff.getId());
+        this.nameField.setText(staff.getName());
+        this.genderCombo.setValue(staff.getGender());
+        this.numberField.setText(staff.getNumber());
+        this.emailField.setText(staff.getEmail());
+        this.passwordField.setText(staff.getPassword());
+    }
+
     @FXML
-    public void onAddStaff() {
+    public void onAddStaff() throws IOException {
         String staffId = staffIdField.getText(),
                 name = nameField.getText(),
                 gender = genderCombo.getValue(),
@@ -73,13 +86,18 @@ public class AddNewStaffFormController implements Initializable {
             }
         } else {
             String[] data = new String[]{staffId, name, gender, number, email, password};
-            isRecordAdded = appendCSV("./csv_files/add_staff_form.csv", data);
+            isRecordAdded = updateCSV("./csv_files/add_staff_form.csv", headersMap.get("add_staff_form.csv"), staffId, data);
 
 
             if (isRecordAdded) {
                 ((Stage) addButton.getScene().getWindow()).close();
             }
         }
+    }
+
+    @FXML
+    public void onCancel() {
+        ((Stage) addButton.getScene().getWindow()).close();
     }
 
     @Override
