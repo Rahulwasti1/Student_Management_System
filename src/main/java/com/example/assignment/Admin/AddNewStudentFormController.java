@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.example.assignment.Static.CSVUtils.appendCSV;
+import static com.example.assignment.Static.PasswordUtils.hashPassword;
+import static com.example.assignment.Static.RandomIDGenerator.generateRandomEightDigits;
 
 // Java Doc
 
@@ -38,6 +40,7 @@ public class AddNewStudentFormController implements Initializable {
 
     @FXML
     public void onAddStudent() {
+
         String studentId = this.studentIdField.getText(),
                 firstName = this.firstNameField.getText(),
                 lastName = this.lastNameField.getText(),
@@ -93,7 +96,7 @@ public class AddNewStudentFormController implements Initializable {
 
         } else {
 //        refer to the headers for positioning
-            String[] data = new String[]{studentId, firstName, lastName, gender, phoneNumber, email, faculty, password};
+            String[] data = new String[]{studentId, firstName, lastName, gender, phoneNumber, email, faculty, hashPassword(password)};
             isRecordAdded = appendCSV("csv_files/add_student_form.csv", data);
 
             if (isRecordAdded) {
@@ -104,6 +107,8 @@ public class AddNewStudentFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.studentIdField.setText("stu" + generateRandomEightDigits());
+        this.studentIdField.setDisable(true);
 //       in 2024 too :/
         String[] genders = {"Male", "Female"};
         this.genderCombo.getItems().addAll(genders);

@@ -29,7 +29,7 @@ public class DashboardController {
     }
 
     @FXML
-    public void clickLogout(ActionEvent event) {
-
+    public void clickLogout(ActionEvent event) throws IOException {
+        changeScene(event, "Login.fxml", "Log in");
     }
 }

@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 
 import static com.example.assignment.Static.CSVUtils.headersMap;
 import static com.example.assignment.Static.CSVUtils.updateCSV;
+import static com.example.assignment.Static.PasswordUtils.hashPassword;
 
 public class EditTeacherFormController implements Initializable {
     @FXML
@@ -29,6 +30,8 @@ public class EditTeacherFormController implements Initializable {
     @FXML
     private Button addButton;
 
+    private String hashPwd;
+
     public void setTeacher(Teacher teacher) {
         this.teacherIdField.setDisable(true);
         this.teacherIdField.setText(teacher.getId());
@@ -36,7 +39,8 @@ public class EditTeacherFormController implements Initializable {
         this.genderCombo.setValue(teacher.getGender());
         this.numberField.setText(teacher.getNumber());
         this.emailField.setText(teacher.getEmail());
-        this.passwordField.setText(teacher.getPassword());
+        this.passwordField.setText("");
+        this.hashPwd = teacher.getPassword();
     }
 
     @FXML
@@ -46,7 +50,7 @@ public class EditTeacherFormController implements Initializable {
                 gender = genderCombo.getValue(),
                 number = numberField.getText(),
                 email = emailField.getText(),
-                password = passwordField.getText();
+                password = passwordField.getText().isEmpty() ? hashPwd : hashPassword(passwordField.getText());
         boolean areFieldsFilled = !teacherId.isEmpty() && !name.isEmpty() && !gender.isEmpty() && (!number.isEmpty() && number.matches("\\d{10}")) && !email.isEmpty() && !password.isEmpty();
         boolean isRecordAdded;
 

@@ -1,17 +1,21 @@
 package com.example.assignment.Admin;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 import static com.example.assignment.Static.CSVUtils.appendCSV;
+import static com.example.assignment.Static.RandomIDGenerator.generateRandomEightDigits;
 
-public class AddNewActivitiesFormController {
+public class AddNewActivitiesFormController implements Initializable {
     @FXML
     private TextField activityIdField, activityTypeField;
 
@@ -63,5 +67,11 @@ public class AddNewActivitiesFormController {
         }
 
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.activityIdField.setDisable(true);
+        this.activityIdField.setText("act" + generateRandomEightDigits());
     }
 }

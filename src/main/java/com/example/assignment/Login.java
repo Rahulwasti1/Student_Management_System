@@ -3,6 +3,7 @@ package com.example.assignment;
 import com.example.assignment.Classes.Staff;
 import com.example.assignment.Classes.Student;
 import com.example.assignment.Classes.Teacher;
+import com.example.assignment.Classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,8 +20,6 @@ import static com.example.assignment.Static.Uses.changeScene;
 import static com.example.assignment.Static.Uses.validateLogin;
 
 public class Login implements Initializable {
-    private String roleDashboard;
-
     @FXML
     private TextField emailField;
 
@@ -46,32 +45,31 @@ public class Login implements Initializable {
 
         String role = roleCombo.getValue();
 
-        boolean validCredentials = false;
+        User user = null;
         String fxmlPath = "";
         String dashboardTitle = "";
 
         switch (role) {
             case "Student":
-                validCredentials = validateLogin(email, password, "./csv_files/add_student_form.csv", "add_student_form.csv", Student.class);
+                user = validateLogin(email, password, "./csv_files/add_student_form.csv", "add_student_form.csv", Student.class);
                 fxmlPath = "Student/Dashboard.fxml";
                 dashboardTitle = "Student Dashboard";
                 break;
 
             case "Teacher":
-                validCredentials = validateLogin(email, password, "./csv_files/add_teacher_form.csv", "add_teacher_form.csv", Teacher.class);
+                user = validateLogin(email, password, "./csv_files/add_teacher_form.csv", "add_teacher_form.csv", Teacher.class);
                 fxmlPath = "Teacher/Dashboard.fxml";
                 dashboardTitle = "Teacher Dashboard";
                 break;
 
             case "Staff":
-                validCredentials = validateLogin(email, password, "./csv_files/add_staff_form.csv", "add_staff_form.csv", Staff.class);
+                user = validateLogin(email, password, "./csv_files/add_staff_form.csv", "add_staff_form.csv", Staff.class);
                 fxmlPath = "Staff/Dashboard.fxml";
                 dashboardTitle = "Staff Dashboard";
                 break;
 
             case "Admin":
                 if (email.equals("admin") && password.equals("admin420")) {
-                    validCredentials = true;
                     fxmlPath = "Admin/Dashboard.fxml";
                     dashboardTitle = "Admin Dashboard";
                 } else {
@@ -84,9 +82,9 @@ public class Login implements Initializable {
                 break;
         }
 
-        if (validCredentials) {
+        if (user != null || role.equals("Admin")) {
             changeScene(event, fxmlPath, dashboardTitle);
-        } else if (!role.equals("Admin")) {
+        } else {
             errorMessage.setText("Invalid credentials.");
         }
     }

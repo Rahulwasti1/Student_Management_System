@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 
 import static com.example.assignment.Static.CSVUtils.headersMap;
 import static com.example.assignment.Static.CSVUtils.updateCSV;
+import static com.example.assignment.Static.PasswordUtils.hashPassword;
 
 public class EditStaffFormController implements Initializable {
     @FXML
@@ -29,6 +30,8 @@ public class EditStaffFormController implements Initializable {
     @FXML
     private Label idErrorLabel, nameErrorLabel, genderErrorLabel, numberErrorLabel, emailErrorLabel, passwordErrorLabel;
 
+    private String hashPwd;
+
     public void setStaff(Staff staff) {
         this.staffIdField.setDisable(true);
         this.staffIdField.setText(staff.getId());
@@ -36,7 +39,8 @@ public class EditStaffFormController implements Initializable {
         this.genderCombo.setValue(staff.getGender());
         this.numberField.setText(staff.getNumber());
         this.emailField.setText(staff.getEmail());
-        this.passwordField.setText(staff.getPassword());
+        this.passwordField.setText("");
+        this.hashPwd = staff.getPassword();
     }
 
     @FXML
@@ -46,7 +50,7 @@ public class EditStaffFormController implements Initializable {
                 gender = genderCombo.getValue(),
                 number = numberField.getText(),
                 email = emailField.getText(),
-                password = passwordField.getText();
+                password = passwordField.getText().isEmpty() ? hashPwd : hashPassword(passwordField.getText());
 
         boolean areFieldsFilled = !staffId.isEmpty() && !gender.isEmpty() && !name.isEmpty() &&
                 (!number.isEmpty() && number.matches("^\\d{10}")) &&
@@ -79,7 +83,7 @@ public class EditStaffFormController implements Initializable {
             } else {
                 emailErrorLabel.setText("");
             }
-            if (password.length() < 8) {
+            if (password.length() > 1 && password.length() < 8) {
                 passwordErrorLabel.setText("Passwords must be greater than 8 characters.");
             } else {
                 passwordErrorLabel.setText("");

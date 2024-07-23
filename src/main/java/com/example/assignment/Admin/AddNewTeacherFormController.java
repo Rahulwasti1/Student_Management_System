@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.example.assignment.Static.CSVUtils.appendCSV;
+import static com.example.assignment.Static.PasswordUtils.hashPassword;
+import static com.example.assignment.Static.RandomIDGenerator.generateRandomEightDigits;
 
 public class AddNewTeacherFormController implements Initializable {
     @FXML
@@ -69,7 +71,7 @@ public class AddNewTeacherFormController implements Initializable {
                 passwordErrorLabel.setText("");
             }
         } else {
-            String[] data = new String[]{teacherId, name, gender, number, email, password};
+            String[] data = new String[]{teacherId, name, gender, number, email, hashPassword(password)};
             isRecordAdded = appendCSV("./csv_files/add_teacher_form.csv", data);
 
             if (isRecordAdded) {
@@ -83,6 +85,8 @@ public class AddNewTeacherFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.teacherIdField.setDisable(true);
+        this.teacherIdField.setText("tea" + generateRandomEightDigits());
         this.genderCombo.getItems().addAll("Male", "Female");
     }
 }

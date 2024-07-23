@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 
 import static com.example.assignment.Static.CSVUtils.headersMap;
 import static com.example.assignment.Static.CSVUtils.updateCSV;
+import static com.example.assignment.Static.PasswordUtils.hashPassword;
 
 public class EditStudentFormController implements Initializable {
     @FXML
@@ -30,6 +31,8 @@ public class EditStudentFormController implements Initializable {
     private Label idErrorLabel, facultyErrorLabel, nameErrorLabel,
             genderErrorLabel, numberErrorLabel, emailErrorLabel, passwordErrorLabel;
 
+    private String hashPwd;
+
     public void setStudent(Student student) {
         this.studentIdField.setDisable(true);
         this.studentIdField.setText(student.getId());
@@ -39,7 +42,8 @@ public class EditStudentFormController implements Initializable {
         this.numberField.setText(student.getPhoneNumber());
         this.emailField.setText(student.getEmail());
         this.facultyField.setText(student.getFaculty());
-        this.passwordField.setText(student.getPassword());
+        this.passwordField.setText("");
+        this.hashPwd = student.getPassword();
     }
 
     @FXML
@@ -51,7 +55,7 @@ public class EditStudentFormController implements Initializable {
                 phoneNumber = this.numberField.getText(),
                 email = this.emailField.getText(),
                 faculty = this.facultyField.getText(),
-                password = this.passwordField.getText();
+                password = this.passwordField.getText().isEmpty() ? hashPwd : hashPassword(this.passwordField.getText());
 
         boolean areFieldsFilled = !studentId.isEmpty() && !firstName.isEmpty() && !lastName.isEmpty() &&
                 !gender.isEmpty() && (!phoneNumber.isEmpty() && phoneNumber.matches("^\\d{10}")) &&
@@ -106,6 +110,11 @@ public class EditStudentFormController implements Initializable {
                 ((Stage) addButton.getScene().getWindow()).close();
             }
         }
+    }
+
+    @FXML
+    public void onCancel() {
+        ((Stage) addButton.getScene().getWindow()).close();
     }
 
     @Override
