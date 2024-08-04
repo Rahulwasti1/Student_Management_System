@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="434.0" prefWidth="305.0"
+            style="-fx-background-color: #2C3E50;" xmlns="http://javafx.com/javafx/22"
+            fx:controller="com.example.assignment.Staff.AddNewDetailsController">
+    <children>
+        <Label layoutX="79.0" layoutY="14.0" style="-fx-font-size: 20; -fx-text-fill: #E4A511;" text="Add New Details"/>
+        <Label layoutX="24.0" layoutY="60.0" style="-fx-text-fill: white;" text="Student Id"/>
+        <TextField fx:id="studentIdField" layoutX="24.0" layoutY="78.0" prefHeight="25.0" prefWidth="260.0"/>
+        <Label layoutX="24.0" layoutY="119.0" style="-fx-text-fill: white;" text="Name"/>
+        <TextField fx:id="nameField" layoutX="24.0" layoutY="136.0" prefHeight="26.0" prefWidth="260.0"/>
+        <TextField fx:id="bookNumberField" layoutX="24.0" layoutY="258.0" prefHeight="25.0" prefWidth="260.0"/>
+        <Button fx:id="addButton" layoutX="24.0" layoutY="374.0" mnemonicParsing="false" onAction="#onAddDetails"
+                prefHeight="30.0" prefWidth="260.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white;"
+                text="Add">
+            <font>
+                <Font name="System Bold" size="13.0"/>
+            </font>
+        </Button>
+        <Label layoutX="25.0" layoutY="179.0" style="-fx-text-fill: white;" text="Book Name"/>
+        <Label layoutX="24.0" layoutY="240.0" style="-fx-text-fill: white;" text="Book Number"/>
+        <Label layoutX="24.0" layoutY="300.0" style="-fx-text-fill: white;" text="Status"/>
+        <ComboBox fx:id="statusCombo" layoutX="24.0" layoutY="318.0" prefHeight="26.0" prefWidth="260.0"
+                  promptText="Select Status"/>
+        <TextField fx:id="bookNameField" layoutX="24.0" layoutY="198.0" prefHeight="25.0" prefWidth="260.0"/>
+        <Label fx:id="idErrorLabel" alignment="CENTER" layoutX="26.0" layoutY="103.0" prefHeight="17.0"
+               prefWidth="229.0" textFill="#f27c7c"/>
+        <Label fx:id="nameErrorLabel" alignment="CENTER" layoutX="26.0" layoutY="162.0" prefHeight="17.0"
+               prefWidth="229.0" textFill="#f27c7c"/>
+        <Label fx:id="bookNameErrorLabel" alignment="CENTER" layoutX="26.0" layoutY="223.0" prefHeight="17.0"
+               prefWidth="229.0" textFill="#f27c7c"/>
+        <Label fx:id="bookNumberErrorLabel" alignment="CENTER" layoutX="26.0" layoutY="283.0" prefHeight="17.0"
+               prefWidth="229.0" textFill="#f27c7c"/>
+        <Label fx:id="statusErrorLabel" alignment="CENTER" layoutX="26.0" layoutY="344.0" prefHeight="17.0"
+               prefWidth="229.0" textFill="#f27c7c"/>
+    </children>
+</AnchorPane>

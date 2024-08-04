@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="494.0" prefWidth="305.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.assignment.Admin.EditStudentFormController">
+
+    <children>
+        <AnchorPane layoutY="-8.0" prefHeight="585.0" prefWidth="305.0" style="-fx-background-color: #2C3E50;">
+            <children>
+                <Label layoutX="62.0" layoutY="33.0" style="-fx-font-size: 20; -fx-text-fill: #E4A511;"
+                       text="Edit Student Details"/>
+                <Label layoutX="24.0" layoutY="88.0" style="-fx-text-fill: white;" text="Student Id"/>
+                <TextField fx:id="studentIdField" layoutX="24.0" layoutY="106.0" prefHeight="25.0" prefWidth="260.0"/>
+                <Label layoutX="23.0" layoutY="148.0" style="-fx-text-fill: white;" text="First Name"/>
+                <TextField fx:id="firstNameField" layoutX="23.0" layoutY="165.0" prefHeight="26.0" prefWidth="126.0"/>
+                <Label layoutX="158.0" layoutY="148.0" style="-fx-text-fill: white;" text="Last Name"/>
+                <TextField fx:id="lastNameField" layoutX="158.0" layoutY="166.0" prefHeight="26.0" prefWidth="125.0"/>
+                <Label layoutX="24.0" layoutY="209.0" style="-fx-text-fill: white;" text="Gender"/>
+                <ComboBox fx:id="genderCombo" layoutX="23.0" layoutY="230.0" prefHeight="26.0" prefWidth="257.0"
+                          promptText="Select Gender"/>
+                <Label layoutX="23.0" layoutY="271.0" style="-fx-text-fill: white;" text="Number"/>
+                <TextField fx:id="numberField" layoutX="23.0" layoutY="289.0" prefHeight="25.0" prefWidth="260.0"/>
+                <Label layoutX="24.0" layoutY="331.0" style="-fx-text-fill: white;" text="Email"/>
+                <TextField fx:id="emailField" layoutX="23.0" layoutY="349.0" prefHeight="25.0" prefWidth="260.0"/>
+                <Label layoutX="24.0" layoutY="392.0" style="-fx-text-fill: white;" text="Faculty"/>
+                <TextField fx:id="facultyField" layoutX="23.0" layoutY="410.0" prefHeight="25.0" prefWidth="260.0"/>
+                <Label layoutX="25.0" layoutY="455.0" style="-fx-text-fill: white;" text="Password"/>
+                <PasswordField fx:id="passwordField" layoutX="25.0" layoutY="472.0" prefHeight="25.0"
+                               prefWidth="260.0"/>
+                <Button fx:id="addButton" layoutX="26.0" layoutY="533.0" mnemonicParsing="false"
+                        onAction="#onAddStudent" prefHeight="30.0" prefWidth="116.0"
+                        style="-fx-background-color: #1ABC9C; -fx-text-fill: white;" text="Update">
+                    <font>
+                        <Font name="System Bold" size="13.0"/>
+                    </font>
+                </Button>
+                <Label fx:id="idErrorLabel" alignment="CENTER" layoutX="27.0" layoutY="131.0" prefHeight="17.0"
+                       prefWidth="235.0" textFill="#f27c7c"/>
+                <Label fx:id="nameErrorLabel" alignment="CENTER" layoutX="27.0" layoutY="192.0" prefHeight="17.0"
+                       prefWidth="250.0" textFill="#f27c7c"/>
+                <Label fx:id="genderErrorLabel" alignment="CENTER" layoutX="29.0" layoutY="256.0" prefHeight="17.0"
+                       prefWidth="235.0" textFill="#f27c7c"/>
+                <Label fx:id="numberErrorLabel" alignment="CENTER" layoutX="24.0" layoutY="314.0" prefHeight="17.0"
+                       prefWidth="235.0" textFill="#f27c7c"/>
+                <Label fx:id="emailErrorLabel" alignment="CENTER" layoutX="20.0" layoutY="375.0" prefHeight="17.0"
+                       prefWidth="235.0" textFill="#f27c7c"/>
+                <Label fx:id="facultyErrorLabel" alignment="CENTER" layoutX="23.0" layoutY="438.0" prefHeight="17.0"
+                       prefWidth="235.0" textFill="#f27c7c"/>
+                <Label fx:id="passwordErrorLabel" alignment="CENTER" layoutX="24.0" layoutY="497.0" prefHeight="17.0"
+                       prefWidth="235.0" textFill="#f27c7c"/>
+                <Button fx:id="cancelButton" layoutX="160.0" layoutY="533.0" mnemonicParsing="false"
+                        onAction="#onCancel" prefHeight="30.0" prefWidth="126.0"
+                        style="-fx-background-color: #f27c7c; -fx-text-fill: white;" text="Cancel">
+                    <font>
+                        <Font name="System Bold" size="13.0"/>
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

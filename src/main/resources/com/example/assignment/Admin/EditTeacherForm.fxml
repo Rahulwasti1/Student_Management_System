@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="452.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment.Admin.EditTeacherFormController">
+    <children>
+        <AnchorPane prefHeight="556.0" prefWidth="305.0" style="-fx-background-color: #2C3E50;">
+            <children>
+                <Label layoutX="67.0" layoutY="25.0" style="-fx-font-size: 20; -fx-text-fill: #E4A511;" text="Edit Teacher Details" />
+                <Label layoutX="22.0" layoutY="72.0" style="-fx-text-fill: white;" text="Teacher Id" />
+                <TextField fx:id="teacherIdField" layoutX="22.0" layoutY="90.0" prefHeight="25.0" prefWidth="260.0" />
+                <Label layoutX="21.0" layoutY="132.0" style="-fx-text-fill: white;" text="Name" />
+                <TextField fx:id="nameField" layoutX="21.0" layoutY="149.0" prefHeight="26.0" prefWidth="260.0" />
+                <Label layoutX="24.0" layoutY="192.0" style="-fx-text-fill: white;" text="Gender" />
+                <ComboBox fx:id="genderCombo" layoutX="23.0" layoutY="213.0" prefHeight="26.0" prefWidth="257.0" promptText="Select Gender" />
+                <Label layoutX="23.0" layoutY="256.0" style="-fx-text-fill: white;" text="Number" />
+                <TextField fx:id="numberField" layoutX="23.0" layoutY="274.0" prefHeight="25.0" prefWidth="260.0" />
+                <Label layoutX="23.0" layoutY="316.0" style="-fx-text-fill: white;" text="Email" />
+                <TextField fx:id="emailField" layoutX="22.0" layoutY="334.0" prefHeight="25.0" prefWidth="260.0" />
+                <Label layoutX="23.0" layoutY="376.0" style="-fx-text-fill: white;" text="Password" />
+                <PasswordField fx:id="passwordField" layoutX="24.0" layoutY="399.0" prefHeight="25.0" prefWidth="260.0" />
+                <Button fx:id="addButton" layoutX="22.0" layoutY="468.0" mnemonicParsing="false" onAction="#onAddTeacher" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white;" text="Update">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cancelButton" layoutX="159.0" layoutY="468.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #f27c7c; -fx-text-fill: white;" text="Cancel">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+                <Label fx:id="idErrorLabel" alignment="CENTER" layoutX="33.0" layoutY="115.0" prefHeight="17.0" prefWidth="239.0" textFill="#f27c7c" />
+                <Label fx:id="nameErrorLabel" alignment="CENTER" layoutX="32.0" layoutY="175.0" prefHeight="17.0" prefWidth="239.0" textFill="#f27c7c" />
+                <Label fx:id="genderErrorLabel" alignment="CENTER" layoutX="34.0" layoutY="239.0" prefHeight="17.0" prefWidth="239.0" textFill="#f27c7c" />
+                <Label fx:id="numberErrorLabel" alignment="CENTER" layoutX="34.0" layoutY="299.0" prefHeight="17.0" prefWidth="239.0" textFill="#f27c7c" />
+                <Label fx:id="emailErrorLabel" alignment="CENTER" layoutX="34.0" layoutY="359.0" prefHeight="17.0" prefWidth="239.0" textFill="#f27c7c" />
+                <Label fx:id="passwordErrorLabel" alignment="CENTER" layoutX="34.0" layoutY="424.0" prefHeight="17.0" prefWidth="239.0" textFill="#f27c7c" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
